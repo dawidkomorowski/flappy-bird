@@ -10,6 +10,7 @@ namespace FlappyBird
         public void Register(ContainerBuilder containerBuilder)
         {
             containerBuilder.RegisterType<SetUpLevel>().As<ISceneConstructionScript>().SingleInstance();
+            containerBuilder.RegisterType<EntityFactory>().As<IEntityFactory>().SingleInstance();
         }
 
         public string Name { get; } = "Flappy Bird";
