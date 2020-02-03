@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Geisha.Engine.Audio.CSCore</name>
+    </assembly>
+    <members>
+        <member name="T:Geisha.Engine.Audio.CSCore.CSCoreAudioBackend">
+            <summary>
+                Audio backend implementation based on CSCore library. Tested to work on Windows.
+            </summary>
+        </member>
+        <member name="M:Geisha.Engine.Audio.CSCore.CSCoreAudioBackend.CreateSound(System.IO.Stream,Geisha.Engine.Audio.SoundFormat)">
+            <summary>
+                Creates new <see cref="T:Geisha.Engine.Audio.ISound" /> from data in given stream.
+            </summary>
+            <param name="stream">Stream containing data of the sound.</param>
+            <param name="soundFormat">Format of sound data in the <paramref name="stream" />.</param>
+            <returns><see cref="T:Geisha.Engine.Audio.ISound" /> that consists of sound data from the <paramref name="stream" />.</returns>
+        </member>
+        <member name="M:Geisha.Engine.Audio.CSCore.CSCoreAudioBackend.CreateAudioPlayer">
+            <summary>
+                Creates audio player.
+            </summary>
+            <returns>New instance of <see cref="T:Geisha.Engine.Audio.IAudioPlayer" />.</returns>
+        </member>
+        <member name="T:Geisha.Engine.Audio.CSCore.SharedMemoryStream">
+            <inheritdoc />
+            <summary>
+                Stream whose backing store is memory shared by all instances of the <see cref="T:Geisha.Engine.Audio.CSCore.SharedMemoryStream" /> class created
+                with <see cref="M:Geisha.Engine.Audio.CSCore.SharedMemoryStream.MakeShared" /> method.
+            </summary>
+            <remarks>
+                <see cref="T:Geisha.Engine.Audio.CSCore.SharedMemoryStream" /> implements read only shared-memory stream that allows having multiple
+                streams reading the same memory. Underlying memory is occupied until all instances of
+                <see cref="T:Geisha.Engine.Audio.CSCore.SharedMemoryStream" /> sharing the same memory are disposed. <see cref="T:Geisha.Engine.Audio.CSCore.SharedMemoryStream" /> class is
+                thread safe.
+            </remarks>
+        </member>
+        <member name="M:Geisha.Engine.Audio.CSCore.SharedMemoryStream.#ctor(System.Byte[])">
+            <summary>
+                Initializes new instance of the <see cref="T:Geisha.Engine.Audio.CSCore.SharedMemoryStream" /> class based on the specified byte array.
+            </summary>
+            <param name="buffer">The array of unsigned bytes from which to create the current stream.</param>
+            <remarks>
+                Provided <paramref name="buffer" /> is used as actual backing store of the stream therefore any modification
+                of the <paramref name="buffer" /> will be reflected in stream itself.
+            </remarks>
+        </member>
+        <member name="M:Geisha.Engine.Audio.CSCore.SharedMemoryStream.#ctor(System.IO.Stream)">
+            <summary>
+                Initializes new instance of the <see cref="T:Geisha.Engine.Audio.CSCore.SharedMemoryStream" /> class based on data copied from the specified
+                stream.
+            </summary>
+            <param name="stream">The stream from which data is copied to create the current stream.</param>
+            <remarks>
+                Provided <paramref name="stream" /> is used as source from which data is copied into backing store of the
+                current stream therefore any modification of the <paramref name="stream" /> will not be reflected in the current
+                steam itself.
+            </remarks>
+        </member>
+        <member name="P:Geisha.Engine.Audio.CSCore.SharedMemoryStream.CanRead">
+            <inheritdoc />
+            <summary>
+                Gets a value indicating whether the current stream supports reading.
+            </summary>
+        </member>
+        <member name="P:Geisha.Engine.Audio.CSCore.SharedMemoryStream.CanSeek">
+            <inheritdoc />
+            <summary>
+                Gets a value indicating whether the current stream supports seeking.
+            </summary>
+        </member>
+        <member name="P:Geisha.Engine.Audio.CSCore.SharedMemoryStream.CanWrite">
+            <inheritdoc />
+            <summary>
+                Gets a value indicating whether the current stream supports writing.
+            </summary>
+        </member>
+        <member name="P:Geisha.Engine.Audio.CSCore.SharedMemoryStream.Length">
+            <inheritdoc />
+            <summary>
+                Gets the length of the stream in bytes.
+            </summary>
+        </member>
+        <member name="P:Geisha.Engine.Audio.CSCore.SharedMemoryStream.Position">
+            <inheritdoc />
+            <summary>
+                Gets or sets the current position within the stream.
+            </summary>
+        </member>
+        <member name="M:Geisha.Engine.Audio.CSCore.SharedMemoryStream.MakeShared">
+            <summary>
+                Creates new <see cref="T:Geisha.Engine.Audio.CSCore.SharedMemoryStream" /> that shares memory with current instance.
+            </summary>
+            <returns>New instance of <see cref="T:Geisha.Engine.Audio.CSCore.SharedMemoryStream" /> that shares memory with current instance.</returns>
+        </member>
+        <member name="M:Geisha.Engine.Audio.CSCore.SharedMemoryStream.Flush">
+            <inheritdoc />
+            <summary>
+                Overrides the <see cref="M:Geisha.Engine.Audio.CSCore.SharedMemoryStream.Flush" /> method so that no action is
+                performed.
+            </summary>
+        </member>
+        <member name="M:Geisha.Engine.Audio.CSCore.SharedMemoryStream.Seek(System.Int64,System.IO.SeekOrigin)">
+            <inheritdoc />
+            <summary>
+                Sets the position within the current stream to the specified value.
+            </summary>
+        </member>
+        <member name="M:Geisha.Engine.Audio.CSCore.SharedMemoryStream.SetLength(System.Int64)">
+            <inheritdoc />
+            <summary>
+                Throws <see cref="T:System.NotSupportedException" /> as stream is read only.
+            </summary>
+        </member>
+        <member name="M:Geisha.Engine.Audio.CSCore.SharedMemoryStream.Read(System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc />
+            <summary>
+                Reads a block of bytes from the current stream and writes the data to a buffer.
+            </summary>
+        </member>
+        <member name="M:Geisha.Engine.Audio.CSCore.SharedMemoryStream.Write(System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc />
+            <summary>
+                Throws <see cref="T:System.NotSupportedException" /> as stream is read only.
+            </summary>
+        </member>
+        <member name="M:Geisha.Engine.Audio.CSCore.Sound.Dispose">
+            <summary>
+                Disposes <see cref="P:Geisha.Engine.Audio.CSCore.Sound.SoundStream" /> instance owned by the <see cref="T:Geisha.Engine.Audio.CSCore.Sound" />. Actual memory will be released when
+                all instances of the sound will complete playing and shared instances of <see cref="T:Geisha.Engine.Audio.CSCore.SharedMemoryStream" /> will be
+                disposed.
+            </summary>
+        </member>
+        <member name="T:Geisha.Engine.Audio.CSCore.SoundMixer">
+            <inheritdoc />
+            <summary>
+                Audio stream that allows mixing of multiple streams.
+            </summary>
+            <remarks>
+                <see cref="T:Geisha.Engine.Audio.CSCore.SoundMixer" /> allows to dynamically add new audio streams as an input to mixing. At any point in
+                time it is an audio stream that is a mix of all added but not already completed input audio streams. If an input
+                audio stream is read to end it is removed from mixing and disposed. <see cref="T:Geisha.Engine.Audio.CSCore.SoundMixer" /> class is thread safe.
+            </remarks>
+        </member>
+        <member name="M:Geisha.Engine.Audio.CSCore.SoundMixer.#ctor">
+            <summary>
+                Initializes new instance of the <see cref="T:Geisha.Engine.Audio.CSCore.SoundMixer" /> class.
+            </summary>
+        </member>
+        <member name="M:Geisha.Engine.Audio.CSCore.SoundMixer.Read(System.Single[],System.Int32,System.Int32)">
+            <inheritdoc />
+            <summary>
+                Reads a sequence of elements from the <see cref="T:CSCore.IReadableAudioSource`1" /> and advances the position
+                within the stream by the number of elements read.
+            </summary>
+        </member>
+        <member name="M:Geisha.Engine.Audio.CSCore.SoundMixer.Dispose">
+            <inheritdoc />
+            <summary>
+                Disposes all sample sources added to sound mixer and removes references to them.
+            </summary>
+        </member>
+        <member name="P:Geisha.Engine.Audio.CSCore.SoundMixer.CanSeek">
+            <inheritdoc />
+            <summary>
+                Gets a value indicating whether the <see cref="T:CSCore.IAudioSource" /> supports seeking.
+            </summary>
+        </member>
+        <member name="P:Geisha.Engine.Audio.CSCore.SoundMixer.WaveFormat">
+            <inheritdoc />
+            <summary>
+                Gets the <see cref="T:CSCore.WaveFormat" /> of the waveform-audio data.
+            </summary>
+        </member>
+        <member name="P:Geisha.Engine.Audio.CSCore.SoundMixer.Position">
+            <inheritdoc />
+            <summary>
+                <see cref="T:Geisha.Engine.Audio.CSCore.SoundMixer" /> does not support position. This property returns 0 or
+                throws <see cref="T:System.NotSupportedException" /> when set.
+            </summary>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="P:Geisha.Engine.Audio.CSCore.SoundMixer.Length">
+            <inheritdoc />
+            <summary>
+                <see cref="T:Geisha.Engine.Audio.CSCore.SoundMixer" /> does not support length. This property returns 0.
+            </summary>
+        </member>
+        <member name="M:Geisha.Engine.Audio.CSCore.SoundMixer.AddSound(CSCore.ISampleSource)">
+            <summary>
+                Adds provided audio stream as an input to mixing.
+            </summary>
+            <param name="sampleSource">An audio stream to be mixed in.</param>
+            <remarks>
+                Provided audio stream must be of the same <see cref="T:CSCore.WaveFormat" /> as this instance of
+                <see cref="T:Geisha.Engine.Audio.CSCore.SoundMixer" />, otherwise an exception is thrown.
+            </remarks>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+    </members>
+</doc>

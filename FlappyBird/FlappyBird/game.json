@@ -1,0 +1,31 @@
+﻿{
+  "CoreConfiguration": {
+    "AssetsRootDirectoryPath": "Assets",
+    "FixedUpdatesPerFrameLimit": 30,
+    "FixedUpdatesPerSecond": 60,
+    "ShowAllEntitiesCount": true,
+    "ShowRootEntitiesCount": true,
+    "ShowFps": true,
+    "ShowFrameTime": true,
+    "ShowTotalFrames": true,
+    "ShowTotalTime": true,
+    "ShowSystemsExecutionTimes": true,
+    "StartUpScene": "TestGame.scene",
+    "SystemsExecutionChain": [
+      "Geisha.Engine.Input.Systems.InputSystem",
+      "Geisha.Engine.Core.Systems.BehaviorSystem",
+      "Geisha.TestGame.TestSystem",
+      "Geisha.Engine.Physics.Systems.PhysicsSystem",
+      "Geisha.Engine.Audio.Systems.AudioSystem",
+      "Geisha.Engine.Rendering.Systems.RenderingSystem",
+      "Geisha.Engine.Core.Systems.EntityDestructionSystem"
+    ]
+  },
+  "RenderingConfiguration": {
+    "EnableVSync": false,
+    "SortingLayersOrder": [
+      "Default",
+      "Box"
+    ]
+  }
+}

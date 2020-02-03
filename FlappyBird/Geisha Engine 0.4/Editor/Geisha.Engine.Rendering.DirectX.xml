@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Geisha.Engine.Rendering.DirectX</name>
+    </assembly>
+    <members>
+        <member name="T:Geisha.Engine.Rendering.DirectX.DirectXRenderingBackend">
+            <summary>
+                Rendering backend implementation using DirectX rendering API. This implementation depends on WinForms.
+            </summary>
+        </member>
+        <member name="M:Geisha.Engine.Rendering.DirectX.DirectXRenderingBackend.#ctor(System.Windows.Forms.Form)">
+            <summary>
+                Creates new instance of <see cref="T:Geisha.Engine.Rendering.DirectX.DirectXRenderingBackend" /> with specified <see cref="T:System.Windows.Forms.Form" /> as render target.
+            </summary>
+            <param name="form"><see cref="T:System.Windows.Forms.Form" /> that serves as render target.</param>
+        </member>
+        <member name="M:Geisha.Engine.Rendering.DirectX.DirectXRenderingBackend.#ctor">
+            <summary>
+                Creates new instance of <see cref="T:Geisha.Engine.Rendering.DirectX.DirectXRenderingBackend" /> with default hidden <see cref="T:System.Windows.Forms.Form" /> as a render
+                target. This constructor is meant for providing rendering backend services without rendering output e.g. current
+                implementation of Geisha.Editor.
+            </summary>
+        </member>
+        <member name="P:Geisha.Engine.Rendering.DirectX.DirectXRenderingBackend.Renderer2D">
+            <summary>
+                2D rendering service provided by the rendering backend.
+            </summary>
+        </member>
+        <member name="M:Geisha.Engine.Rendering.DirectX.Renderer2D.CreateMatrixWithAdjustedCoordinatesSystem(Geisha.Common.Math.Matrix3x3)">
+            <summary>
+                Converts given <see cref="T:Geisha.Common.Math.Matrix3x3" /> transform to Direct2D <see cref="T:SharpDX.Mathematics.Interop.RawMatrix3x2" /> adjusting coordinates
+                system.
+            </summary>
+            <remarks>
+                Direct2D renders from upper left corner with Y axis towards bottom of the screen while it is required to have
+                origin in center of screen with Y axis towards top of the screen.
+            </remarks>
+            <param name="transform">Raw transform to be used for rendering.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

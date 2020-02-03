@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Geisha.Engine.Input.Windows</name>
+    </assembly>
+    <members>
+        <member name="T:Geisha.Engine.Input.Windows.WindowsInputBackend">
+            <summary>
+                Input backend implementation for Windows. This implementation depends on WinForms and Win32.
+            </summary>
+        </member>
+        <member name="M:Geisha.Engine.Input.Windows.WindowsInputBackend.#ctor(System.Windows.Forms.Form)">
+            <summary>
+                Creates new instance of <see cref="T:Geisha.Engine.Input.Windows.WindowsInputBackend" /> that handles input for specified <see cref="T:System.Windows.Forms.Form" />
+                instance.
+            </summary>
+            <param name="form"><see cref="T:System.Windows.Forms.Form" /> instance for which input backend handles input.</param>
+        </member>
+        <member name="M:Geisha.Engine.Input.Windows.WindowsInputBackend.CreateInputProvider">
+            <summary>
+                Creates input provider suitable for Windows platform.
+            </summary>
+            <returns>New instance of <see cref="T:Geisha.Engine.Input.IInputProvider" /> suitable for Windows platform.</returns>
+        </member>
+    </members>
+</doc>
