@@ -24,8 +24,8 @@
     "EnableVSync": false,
     "SortingLayersOrder": [
       "Background",
-      "Ground",
-      "Bird"
+      "Bird",
+      "Ground"
     ]
   }
 }

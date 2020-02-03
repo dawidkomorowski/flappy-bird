@@ -25,6 +25,8 @@ namespace FlappyBird
             ApplyGravity();
             ApplyJump();
             ApplyHeightLimit();
+
+            CheckIfStillAlive();
         }
 
         private void HandleSpaceKey()
@@ -53,6 +55,16 @@ namespace FlappyBird
             if (_transformComponent.Translation.Y > heightLimit)
             {
                 _transformComponent.Translation = _transformComponent.Translation.WithY(heightLimit);
+            }
+        }
+
+        private void CheckIfStillAlive()
+        {
+            const int groundLevel = -280;
+            if (_transformComponent.Translation.Y < groundLevel)
+            {
+                GlobalGameState.PlayerIsAlive = false;
+                Entity.RemoveComponent(this);
             }
         }
     }

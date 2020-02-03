@@ -60,6 +60,7 @@
     <Compile Include="BirdPlayerControlsComponent.cs" />
     <Compile Include="EntityFactory.cs" />
     <Compile Include="Extension.cs" />
+    <Compile Include="GlobalGameState.cs" />
     <Compile Include="GroundScrollingComponent.cs" />
     <Compile Include="SetUpLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
