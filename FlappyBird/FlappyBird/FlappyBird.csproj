@@ -45,12 +45,53 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Audio\die.ogg" />
+    <None Include="Assets\Audio\hit.ogg" />
+    <None Include="Assets\Audio\point.ogg" />
+    <None Include="Assets\Audio\swoosh.ogg" />
+    <None Include="Assets\Audio\wing.ogg" />
+    <None Include="Assets\Level\Empty.scene">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="game.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Assets\" />
+    <Content Include="Assets\Audio\die.wav" />
+    <Content Include="Assets\Audio\hit.wav" />
+    <Content Include="Assets\Audio\point.wav" />
+    <Content Include="Assets\Audio\swoosh.wav" />
+    <Content Include="Assets\Audio\wing.wav" />
+    <Content Include="Assets\Sprites\0.png" />
+    <Content Include="Assets\Sprites\1.png" />
+    <Content Include="Assets\Sprites\2.png" />
+    <Content Include="Assets\Sprites\3.png" />
+    <Content Include="Assets\Sprites\4.png" />
+    <Content Include="Assets\Sprites\5.png" />
+    <Content Include="Assets\Sprites\6.png" />
+    <Content Include="Assets\Sprites\7.png" />
+    <Content Include="Assets\Sprites\8.png" />
+    <Content Include="Assets\Sprites\9.png" />
+    <Content Include="Assets\Sprites\background-day.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Sprites\background-night.png" />
+    <Content Include="Assets\Sprites\base.png" />
+    <Content Include="Assets\Sprites\bluebird-downflap.png" />
+    <Content Include="Assets\Sprites\bluebird-midflap.png" />
+    <Content Include="Assets\Sprites\bluebird-upflap.png" />
+    <Content Include="Assets\Sprites\gameover.png" />
+    <Content Include="Assets\Sprites\message.png" />
+    <Content Include="Assets\Sprites\pipe-green.png" />
+    <Content Include="Assets\Sprites\pipe-red.png" />
+    <Content Include="Assets\Sprites\redbird-downflap.png" />
+    <Content Include="Assets\Sprites\redbird-midflap.png" />
+    <Content Include="Assets\Sprites\redbird-upflap.png" />
+    <Content Include="Assets\Sprites\yellowbird-downflap.png" />
+    <Content Include="Assets\Sprites\yellowbird-midflap.png" />
+    <Content Include="Assets\Sprites\yellowbird-upflap.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

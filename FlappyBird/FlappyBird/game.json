@@ -10,7 +10,7 @@
     "ShowTotalFrames": true,
     "ShowTotalTime": true,
     "ShowSystemsExecutionTimes": true,
-    "StartUpScene": "TestGame.scene",
+    "StartUpScene": "Assets\\Level\\Empty.scene",
     "SystemsExecutionChain": [
       "Geisha.Engine.Input.Systems.InputSystem",
       "Geisha.Engine.Core.Systems.BehaviorSystem",

@@ -3,16 +3,18 @@
   <RootPanel Orientation="Horizontal">
     <LayoutAnchorablePaneGroup Orientation="Horizontal" DockWidth="300">
       <LayoutAnchorablePane Id="fe52f4c0-4f33-47ad-98b3-a5de698e8dfb" DockWidth="300">
-        <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Project Explorer" IsSelected="True" ContentId="Project Explorer" CanClose="False" LastActivationTimeStamp="02/03/2020 02:13:04" />
+        <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Project Explorer" IsSelected="True" ContentId="Project Explorer" CanClose="False" LastActivationTimeStamp="02/03/2020 02:42:55" />
       </LayoutAnchorablePane>
     </LayoutAnchorablePaneGroup>
     <LayoutDocumentPaneGroup Orientation="Horizontal">
-      <LayoutDocumentPane />
+      <LayoutDocumentPane>
+        <LayoutDocument Title="Empty.scene" IsSelected="True" IsLastFocusedDocument="True" ContentId="Empty.scene" CanClose="False" LastActivationTimeStamp="02/03/2020 02:44:42" />
+      </LayoutDocumentPane>
     </LayoutDocumentPaneGroup>
     <LayoutAnchorablePaneGroup Orientation="Vertical" DockWidth="300">
       <LayoutAnchorablePaneGroup Orientation="Horizontal" DockWidth="300" FloatingWidth="310" FloatingHeight="704" FloatingLeft="1395" FloatingTop="454">
         <LayoutAnchorablePane DockWidth="300" FloatingWidth="310" FloatingHeight="704" FloatingLeft="1395" FloatingTop="454">
-          <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Scene Outline" IsSelected="True" ContentId="Scene Outline" FloatingLeft="1395" FloatingTop="454" FloatingWidth="310" FloatingHeight="704" CanClose="False" LastActivationTimeStamp="02/03/2020 02:13:02" PreviousContainerId="fe52f4c0-4f33-47ad-98b3-a5de698e8dfb" PreviousContainerIndex="1" />
+          <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Scene Outline" IsSelected="True" ContentId="Scene Outline" FloatingLeft="1395" FloatingTop="454" FloatingWidth="310" FloatingHeight="704" CanClose="False" LastActivationTimeStamp="02/03/2020 02:44:44" PreviousContainerId="fe52f4c0-4f33-47ad-98b3-a5de698e8dfb" PreviousContainerIndex="1" />
         </LayoutAnchorablePane>
       </LayoutAnchorablePaneGroup>
       <LayoutAnchorablePane DockWidth="300" FloatingWidth="310" FloatingHeight="704" FloatingLeft="1511" FloatingTop="478">
