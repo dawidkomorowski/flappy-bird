@@ -8,9 +8,9 @@ namespace FlappyBird
     {
         private TransformComponent _transformComponent;
         private InputComponent _inputComponent;
-        private const double MaxJumpVelocity = 25;
-        private const double JumpVelocityDamping = 2;
-        private double _jumpVelocity = 0;
+        private const double FlapVelocity = 15;
+        private const double Gravity = 1.3;
+        private double _verticalVelocity;
 
         public override void OnStart()
         {
@@ -23,7 +23,6 @@ namespace FlappyBird
             HandleSpaceKey();
 
             ApplyGravity();
-            ApplyJump();
             ApplyHeightLimit();
 
             CheckIfStillAlive();
@@ -33,20 +32,14 @@ namespace FlappyBird
         {
             if (_inputComponent.HardwareInput.KeyboardInput.Space)
             {
-                _jumpVelocity = MaxJumpVelocity;
+                _verticalVelocity = FlapVelocity;
             }
         }
 
         private void ApplyGravity()
         {
-            const int gravity = 10;
-            _transformComponent.Translation += new Vector3(0, -gravity, 0);
-        }
-
-        private void ApplyJump()
-        {
-            if (_jumpVelocity > 0) _jumpVelocity -= JumpVelocityDamping;
-            _transformComponent.Translation += new Vector3(0, _jumpVelocity, 0);
+            _verticalVelocity -= Gravity;
+            _transformComponent.Translation += new Vector3(0, _verticalVelocity, 0);
         }
 
         private void ApplyHeightLimit()
