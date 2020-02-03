@@ -23,7 +23,8 @@
   "RenderingConfiguration": {
     "EnableVSync": false,
     "SortingLayersOrder": [
-      "Background"
+      "Background",
+      "Ground"
     ]
   }
 }

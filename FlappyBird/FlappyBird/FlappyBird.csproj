@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="EntityFactory.cs" />
     <Compile Include="Extension.cs" />
+    <Compile Include="GroundScrollingBehaviorComponent.cs" />
     <Compile Include="SetUpLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -75,6 +76,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Assets\Sprites\background-day.gtexture">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Assets\Sprites\base.gsprite">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Assets\Sprites\base.gtexture">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="game.json">
@@ -103,7 +110,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Sprites\background-night.png" />
-    <Content Include="Assets\Sprites\base.png" />
+    <Content Include="Assets\Sprites\base.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Sprites\bluebird-downflap.png" />
     <Content Include="Assets\Sprites\bluebird-midflap.png" />
     <Content Include="Assets\Sprites\bluebird-upflap.png" />

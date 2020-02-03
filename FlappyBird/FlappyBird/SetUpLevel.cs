@@ -20,6 +20,7 @@ namespace FlappyBird
             scene.AddEntity(_entityFactory.CreateCamera());
 
             SetUpBackground(scene);
+            SetUpGround(scene);
         }
 
         private void SetUpBackground(Scene scene)
@@ -35,6 +36,20 @@ namespace FlappyBird
             var backgroundDayRight = _entityFactory.CreateBackgroundDay();
             backgroundDayRight.GetComponent<TransformComponent>().Translation = new Vector3(512, 0, 0);
             scene.AddEntity(backgroundDayRight);
+        }
+
+        private void SetUpGround(Scene scene)
+        {
+            for (var i = 0; i < 10; i++)
+            {
+                const double groundWidth = 336;
+                const double offsetToTheLeft = 2 * groundWidth;
+                var initialX = i * groundWidth - offsetToTheLeft;
+
+                var ground = _entityFactory.CreateGround();
+                ground.GetComponent<TransformComponent>().Translation = new Vector3(initialX, -350, 0);
+                scene.AddEntity(ground);
+            }
         }
     }
 }
