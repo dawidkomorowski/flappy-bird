@@ -21,6 +21,7 @@ namespace FlappyBird
 
             SetUpBackground(scene);
             SetUpGround(scene);
+            SetUpBird(scene);
         }
 
         private void SetUpBackground(Scene scene)
@@ -50,6 +51,13 @@ namespace FlappyBird
                 ground.GetComponent<TransformComponent>().Translation = new Vector3(initialX, -350, 0);
                 scene.AddEntity(ground);
             }
+        }
+
+        private void SetUpBird(Scene scene)
+        {
+            var bird = _entityFactory.CreateBird();
+            bird.GetComponent<TransformComponent>().Translation = new Vector3(-100, 0, 0);
+            scene.AddEntity(bird);
         }
     }
 }

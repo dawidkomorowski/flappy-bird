@@ -3,7 +3,7 @@ using Geisha.Engine.Core.Components;
 
 namespace FlappyBird
 {
-    public sealed class GroundScrollingBehaviorComponent : BehaviorComponent
+    public sealed class GroundScrollingComponent : BehaviorComponent
     {
         private const double Speed = 5;
 

@@ -56,9 +56,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BirdMovementComponent.cs" />
     <Compile Include="EntityFactory.cs" />
     <Compile Include="Extension.cs" />
-    <Compile Include="GroundScrollingBehaviorComponent.cs" />
+    <Compile Include="GroundScrollingComponent.cs" />
     <Compile Include="SetUpLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -82,6 +83,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Assets\Sprites\base.gtexture">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Assets\Sprites\yellowbird-midflap.gsprite">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Assets\Sprites\yellowbird-midflap.gtexture">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="game.json">
@@ -124,7 +131,9 @@
     <Content Include="Assets\Sprites\redbird-midflap.png" />
     <Content Include="Assets\Sprites\redbird-upflap.png" />
     <Content Include="Assets\Sprites\yellowbird-downflap.png" />
-    <Content Include="Assets\Sprites\yellowbird-midflap.png" />
+    <Content Include="Assets\Sprites\yellowbird-midflap.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Sprites\yellowbird-upflap.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
