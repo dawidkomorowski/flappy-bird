@@ -56,7 +56,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BirdMovementComponent.cs" />
+    <Compile Include="BirdIdleFlyingComponent.cs" />
+    <Compile Include="BirdPlayerControlsComponent.cs" />
     <Compile Include="EntityFactory.cs" />
     <Compile Include="Extension.cs" />
     <Compile Include="GroundScrollingComponent.cs" />
