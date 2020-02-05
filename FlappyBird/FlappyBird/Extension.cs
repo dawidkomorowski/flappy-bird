@@ -2,6 +2,7 @@
 using Autofac;
 using Geisha.Common.Extensibility;
 using Geisha.Engine.Core.SceneModel;
+using Geisha.Engine.Core.Systems;
 
 namespace FlappyBird
 {
@@ -11,6 +12,7 @@ namespace FlappyBird
         {
             containerBuilder.RegisterType<SetUpLevel>().As<ISceneConstructionScript>().SingleInstance();
             containerBuilder.RegisterType<EntityFactory>().As<IEntityFactory>().SingleInstance();
+            containerBuilder.RegisterType<GameOverSystem>().As<IFixedTimeStepSystem>().SingleInstance();
         }
 
         public string Name { get; } = "Flappy Bird";

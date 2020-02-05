@@ -1,6 +1,7 @@
 ﻿using Geisha.Common.Math;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
+using Geisha.Engine.Rendering.Components;
 
 namespace FlappyBird
 {
@@ -17,11 +18,14 @@ namespace FlappyBird
 
         public void Execute(Scene scene)
         {
+            GlobalGameState.PlayerIsAlive = true;
+
             scene.AddEntity(_entityFactory.CreateCamera());
 
             SetUpBackground(scene);
             SetUpGround(scene);
             SetUpBird(scene);
+            SetUpGameOver(scene);
         }
 
         private void SetUpBackground(Scene scene)
@@ -58,6 +62,13 @@ namespace FlappyBird
             var bird = _entityFactory.CreateBird();
             bird.GetComponent<TransformComponent>().Translation = new Vector3(-100, 0, 0);
             scene.AddEntity(bird);
+        }
+
+        private void SetUpGameOver(Scene scene)
+        {
+            var gameOver = _entityFactory.CreateGameOver();
+            gameOver.GetComponent<SpriteRendererComponent>().Visible = false;
+            scene.AddEntity(gameOver);
         }
     }
 }

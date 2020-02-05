@@ -21,7 +21,7 @@ namespace FlappyBird
             _updatesCounter++;
             _transformComponent.Translation = _transformComponent.Translation.WithY(Math.Sin(_updatesCounter * 0.1) * 10);
 
-            if (_inputComponent.GetActionState("Flap"))
+            if (_inputComponent.GetActionState("Flap") && _updatesCounter > 30)
             {
                 Entity.RemoveComponent(this);
                 Entity.AddComponent(new BirdPlayerControlsComponent());

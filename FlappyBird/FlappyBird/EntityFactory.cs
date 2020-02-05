@@ -17,6 +17,7 @@ namespace FlappyBird
         Entity CreateBackgroundDay();
         Entity CreateGround();
         Entity CreateBird();
+        Entity CreateGameOver();
     }
 
     public sealed class EntityFactory : IEntityFactory
@@ -68,7 +69,7 @@ namespace FlappyBird
 
         public Entity CreateBird()
         {
-            var entity = new Entity();
+            var entity = new Entity {Name = "Bird"};
             entity.AddComponent(new TransformComponent
             {
                 Translation = Vector3.Zero,
@@ -101,6 +102,23 @@ namespace FlappyBird
                 }
             });
             entity.AddComponent(new BirdIdleFlyingComponent());
+            return entity;
+        }
+
+        public Entity CreateGameOver()
+        {
+            var entity = new Entity {Name = "GameOver"};
+            entity.AddComponent(new TransformComponent
+            {
+                Translation = Vector3.Zero,
+                Rotation = Vector3.Zero,
+                Scale = new Vector3(2, 2, 1)
+            });
+            entity.AddComponent(new SpriteRendererComponent
+            {
+                Sprite = _assetStore.GetAsset<Sprite>(new AssetId(new Guid("de7e5788-c21c-4897-b014-c79c41ae39dd"))),
+                SortingLayerName = "UI"
+            });
             return entity;
         }
     }
