@@ -52,22 +52,25 @@ namespace FlappyBird
             double rotation;
             const double upperRangeLimit = -20;
             const double lowerRangeLimit = -35;
+            const double maximumAngle = 15;
+            const double minimumAngle = -90;
 
             if (_verticalVelocity > upperRangeLimit)
             {
-                rotation = Angle.Deg2Rad(45);
+                rotation = Angle.Deg2Rad(maximumAngle);
             }
             else
             {
                 if (_verticalVelocity <= upperRangeLimit && _verticalVelocity > lowerRangeLimit)
                 {
                     var normalizedVelocityInRange = -(_verticalVelocity - upperRangeLimit) / (upperRangeLimit - lowerRangeLimit);
-                    var degrees = 45 - 135 * normalizedVelocityInRange;
+                    const double angleDifference = maximumAngle - minimumAngle;
+                    var degrees = maximumAngle - angleDifference * normalizedVelocityInRange;
                     rotation = Angle.Deg2Rad(degrees);
                 }
                 else
                 {
-                    rotation = Angle.Deg2Rad(-90);
+                    rotation = Angle.Deg2Rad(minimumAngle);
                 }
             }
 
