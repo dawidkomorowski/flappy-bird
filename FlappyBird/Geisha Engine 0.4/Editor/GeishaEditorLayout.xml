@@ -3,7 +3,7 @@
   <RootPanel Orientation="Horizontal">
     <LayoutAnchorablePaneGroup Orientation="Horizontal" DockWidth="300">
       <LayoutAnchorablePane Id="fe52f4c0-4f33-47ad-98b3-a5de698e8dfb" DockWidth="300">
-        <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Project Explorer" IsSelected="True" ContentId="Project Explorer" CanClose="False" LastActivationTimeStamp="02/03/2020 22:12:22" />
+        <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Project Explorer" IsSelected="True" ContentId="Project Explorer" CanClose="False" LastActivationTimeStamp="02/05/2020 21:03:56" />
       </LayoutAnchorablePane>
     </LayoutAnchorablePaneGroup>
     <LayoutDocumentPaneGroup Orientation="Horizontal">

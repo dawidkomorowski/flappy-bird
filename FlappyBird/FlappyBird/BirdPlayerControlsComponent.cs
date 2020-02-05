@@ -1,6 +1,7 @@
 ﻿using Geisha.Common.Math;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Input.Components;
+using Geisha.Engine.Physics.Components;
 
 namespace FlappyBird
 {
@@ -8,7 +9,8 @@ namespace FlappyBird
     {
         private TransformComponent _transformComponent;
         private InputComponent _inputComponent;
-        private const double FlapVelocity = 20;
+        private RectangleColliderComponent _rectangleColliderComponent;
+        private const double FlapVelocity = 16;
         private const double Gravity = 1.2;
         private double _verticalVelocity;
 
@@ -16,6 +18,7 @@ namespace FlappyBird
         {
             _transformComponent = Entity.GetComponent<TransformComponent>();
             _inputComponent = Entity.GetComponent<InputComponent>();
+            _rectangleColliderComponent = Entity.GetComponent<RectangleColliderComponent>();
 
             _inputComponent.BindAction("Flap", Flap);
 
@@ -89,7 +92,11 @@ namespace FlappyBird
         private void CheckIfStillAlive()
         {
             const int groundLevel = -280;
-            if (_transformComponent.Translation.Y < groundLevel)
+            var hitTheGround = _transformComponent.Translation.Y < groundLevel;
+
+            var hitThePipe = _rectangleColliderComponent.IsColliding;
+
+            if (hitTheGround || hitThePipe)
             {
                 GlobalGameState.PlayerIsAlive = false;
                 Entity.RemoveComponent(this);

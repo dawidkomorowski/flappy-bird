@@ -6,6 +6,7 @@ using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Input;
 using Geisha.Engine.Input.Components;
 using Geisha.Engine.Input.Mapping;
+using Geisha.Engine.Physics.Components;
 using Geisha.Engine.Rendering;
 using Geisha.Engine.Rendering.Components;
 
@@ -103,6 +104,10 @@ namespace FlappyBird
                 }
             });
             entity.AddComponent(new BirdIdleFlyingComponent());
+            entity.AddComponent(new RectangleColliderComponent
+            {
+                Dimension = new Vector2(32 - 2, 24 - 2)
+            });
             return entity;
         }
 
@@ -138,6 +143,10 @@ namespace FlappyBird
                 SortingLayerName = "Pipe"
             });
             entity.AddComponent(new PipeScrollingComponent());
+            entity.AddComponent(new RectangleColliderComponent
+            {
+                Dimension = new Vector2(52, 320)
+            });
             return entity;
         }
     }

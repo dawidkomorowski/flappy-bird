@@ -9,6 +9,7 @@ namespace FlappyBird
     public sealed class GameOverSystem : IFixedTimeStepSystem
     {
         private readonly ISceneManager _sceneManager;
+        private int _updatesCounter;
 
         public GameOverSystem(ISceneManager sceneManager)
         {
@@ -19,14 +20,20 @@ namespace FlappyBird
         {
             if (GlobalGameState.PlayerIsAlive == false)
             {
+                _updatesCounter++;
+
                 var gameOver = scene.RootEntities.Single(e => e.Name == "GameOver");
                 gameOver.GetComponent<SpriteRendererComponent>().Visible = true;
 
                 var bird = scene.RootEntities.Single(e => e.Name == "Bird");
-                if (bird.GetComponent<InputComponent>().GetActionState("Flap"))
+                if (bird.GetComponent<InputComponent>().GetActionState("Flap") && _updatesCounter > 30)
                 {
                     _sceneManager.LoadScene(@"Assets\Level\Empty.scene");
                 }
+            }
+            else
+            {
+                _updatesCounter = 0;
             }
         }
 
