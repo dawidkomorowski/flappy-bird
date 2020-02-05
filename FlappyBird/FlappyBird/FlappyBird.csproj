@@ -63,6 +63,8 @@
     <Compile Include="GameOverSystem.cs" />
     <Compile Include="GlobalGameState.cs" />
     <Compile Include="GroundScrollingComponent.cs" />
+    <Compile Include="PipeScrollingComponent.cs" />
+    <Compile Include="PipeSystem.cs" />
     <Compile Include="SetUpLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -92,6 +94,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Assets\Sprites\gameover.gtexture">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Assets\Sprites\pipe-green.gsprite">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Assets\Sprites\pipe-green.gtexture">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Assets\Sprites\yellowbird-midflap.gsprite">
@@ -136,7 +144,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Sprites\message.png" />
-    <Content Include="Assets\Sprites\pipe-green.png" />
+    <Content Include="Assets\Sprites\pipe-green.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Sprites\pipe-red.png" />
     <Content Include="Assets\Sprites\redbird-downflap.png" />
     <Content Include="Assets\Sprites\redbird-midflap.png" />

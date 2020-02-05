@@ -14,6 +14,7 @@
     "SystemsExecutionChain": [
       "Geisha.Engine.Input.Systems.InputSystem",
       "Geisha.Engine.Core.Systems.BehaviorSystem",
+      "FlappyBird.PipeSystem",
       "FlappyBird.GameOverSystem",
       "Geisha.Engine.Physics.Systems.PhysicsSystem",
       "Geisha.Engine.Audio.Systems.AudioSystem",
@@ -25,6 +26,7 @@
     "EnableVSync": false,
     "SortingLayersOrder": [
       "Background",
+      "Pipe",
       "Bird",
       "Ground",
       "UI"

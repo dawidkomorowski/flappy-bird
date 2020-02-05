@@ -12,6 +12,7 @@ namespace FlappyBird
         {
             containerBuilder.RegisterType<SetUpLevel>().As<ISceneConstructionScript>().SingleInstance();
             containerBuilder.RegisterType<EntityFactory>().As<IEntityFactory>().SingleInstance();
+            containerBuilder.RegisterType<PipeSystem>().As<IFixedTimeStepSystem>().SingleInstance();
             containerBuilder.RegisterType<GameOverSystem>().As<IFixedTimeStepSystem>().SingleInstance();
         }
 
