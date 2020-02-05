@@ -3,7 +3,9 @@ using Geisha.Common.Math;
 using Geisha.Engine.Core.Assets;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
+using Geisha.Engine.Input;
 using Geisha.Engine.Input.Components;
+using Geisha.Engine.Input.Mapping;
 using Geisha.Engine.Rendering;
 using Geisha.Engine.Rendering.Components;
 
@@ -78,7 +80,26 @@ namespace FlappyBird
                 Sprite = _assetStore.GetAsset<Sprite>(new AssetId(new Guid("71f76a03-88d4-454c-b372-eaae11fc120f"))),
                 SortingLayerName = "Bird"
             });
-            entity.AddComponent(new InputComponent());
+            entity.AddComponent(new InputComponent
+            {
+                InputMapping = new InputMapping
+                {
+                    ActionMappings =
+                    {
+                        new ActionMapping
+                        {
+                            ActionName = "Flap",
+                            HardwareActions =
+                            {
+                                new HardwareAction
+                                {
+                                    HardwareInputVariant = HardwareInputVariant.CreateKeyboardVariant(Key.Space)
+                                }
+                            }
+                        }
+                    }
+                }
+            });
             entity.AddComponent(new BirdIdleFlyingComponent());
             return entity;
         }

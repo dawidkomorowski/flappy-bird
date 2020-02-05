@@ -8,7 +8,7 @@ namespace FlappyBird
     {
         private TransformComponent _transformComponent;
         private InputComponent _inputComponent;
-        private const double FlapVelocity = 15;
+        private const double FlapVelocity = 20;
         private const double Gravity = 1.3;
         private double _verticalVelocity;
 
@@ -16,24 +16,23 @@ namespace FlappyBird
         {
             _transformComponent = Entity.GetComponent<TransformComponent>();
             _inputComponent = Entity.GetComponent<InputComponent>();
+
+            _inputComponent.BindAction("Flap", Flap);
+
+            Flap();
         }
 
         public override void OnFixedUpdate()
         {
-            HandleSpaceKey();
-
             ApplyGravity();
             ApplyHeightLimit();
 
             CheckIfStillAlive();
         }
 
-        private void HandleSpaceKey()
+        private void Flap()
         {
-            if (_inputComponent.HardwareInput.KeyboardInput.Space)
-            {
-                _verticalVelocity = FlapVelocity;
-            }
+            _verticalVelocity = FlapVelocity;
         }
 
         private void ApplyGravity()
