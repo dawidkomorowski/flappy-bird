@@ -9,7 +9,7 @@ namespace FlappyBird
         private TransformComponent _transformComponent;
         private InputComponent _inputComponent;
         private const double FlapVelocity = 20;
-        private const double Gravity = 1.3;
+        private const double Gravity = 1.2;
         private double _verticalVelocity;
 
         public override void OnStart()
@@ -25,6 +25,8 @@ namespace FlappyBird
         public override void OnFixedUpdate()
         {
             ApplyGravity();
+            ApplyMovement();
+            ApplyRotationBasedOnVelocity();
             ApplyHeightLimit();
 
             CheckIfStillAlive();
@@ -38,7 +40,38 @@ namespace FlappyBird
         private void ApplyGravity()
         {
             _verticalVelocity -= Gravity;
+        }
+
+        private void ApplyMovement()
+        {
             _transformComponent.Translation += new Vector3(0, _verticalVelocity, 0);
+        }
+
+        private void ApplyRotationBasedOnVelocity()
+        {
+            double rotation;
+            const double upperRangeLimit = -20;
+            const double lowerRangeLimit = -35;
+
+            if (_verticalVelocity > upperRangeLimit)
+            {
+                rotation = Angle.Deg2Rad(45);
+            }
+            else
+            {
+                if (_verticalVelocity <= upperRangeLimit && _verticalVelocity > lowerRangeLimit)
+                {
+                    var normalizedVelocityInRange = -(_verticalVelocity - upperRangeLimit) / (upperRangeLimit - lowerRangeLimit);
+                    var degrees = 45 - 135 * normalizedVelocityInRange;
+                    rotation = Angle.Deg2Rad(degrees);
+                }
+                else
+                {
+                    rotation = Angle.Deg2Rad(-90);
+                }
+            }
+
+            _transformComponent.Rotation = new Vector3(0, 0, rotation);
         }
 
         private void ApplyHeightLimit()
