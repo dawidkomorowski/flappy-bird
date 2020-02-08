@@ -1,4 +1,5 @@
-﻿using Geisha.Engine.Core.Components;
+﻿using Geisha.Common.Math;
+using Geisha.Engine.Core.Components;
 using Geisha.Engine.Rendering;
 using Geisha.Engine.Rendering.Components;
 
@@ -8,6 +9,7 @@ namespace FlappyBird
     {
         private readonly Sprite[] _animationFrames;
         private SpriteRendererComponent _spriteRendererComponent;
+        private TransformComponent _transformComponent;
 
         private int _updateCounter;
         private int _animationFrameCounter;
@@ -25,22 +27,36 @@ namespace FlappyBird
         public override void OnStart()
         {
             _spriteRendererComponent = Entity.GetComponent<SpriteRendererComponent>();
+            _transformComponent = Entity.GetComponent<TransformComponent>();
         }
 
         public override void OnFixedUpdate()
         {
             if (GlobalGameState.CurrentPhase == GlobalGameState.Phase.Playing)
             {
-                _updateCounter++;
-
-                if (_updateCounter % AnimationDuration == 0)
+                if (IsBirdFallingDown())
                 {
-                    _animationFrameCounter++;
+                    _spriteRendererComponent.Sprite = _animationFrames[1];
                 }
+                else
+                {
+                    _updateCounter++;
 
-                var frameIndex = _animationFrameCounter % 4;
-                _spriteRendererComponent.Sprite = _animationFrames[frameIndex];
+                    if (_updateCounter % AnimationDuration == 0)
+                    {
+                        _animationFrameCounter++;
+                    }
+
+                    var frameIndex = _animationFrameCounter % 4;
+                    _spriteRendererComponent.Sprite = _animationFrames[frameIndex];
+                }
             }
+        }
+
+        private bool IsBirdFallingDown()
+        {
+            var angle = Angle.Rad2Deg(_transformComponent.Rotation.Z);
+            return angle < -85;
         }
     }
 }

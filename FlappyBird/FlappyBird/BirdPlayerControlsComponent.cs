@@ -10,8 +10,8 @@ namespace FlappyBird
         private TransformComponent _transformComponent;
         private InputComponent _inputComponent;
         private RectangleColliderComponent _rectangleColliderComponent;
-        private const double FlapVelocity = 16;
-        private const double Gravity = 1.2;
+        private const double FlapVelocity = 13;
+        private const double Gravity = 0.8;
         private double _verticalVelocity;
 
         public override void OnStart()
@@ -55,8 +55,8 @@ namespace FlappyBird
         private void ApplyRotationBasedOnVelocity()
         {
             double rotation;
-            const double upperRangeLimit = -20;
-            const double lowerRangeLimit = -35;
+            const double upperRangeLimit = -15;
+            const double lowerRangeLimit = -25;
             const double maximumAngle = 15;
             const double minimumAngle = -90;
 
