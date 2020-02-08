@@ -56,6 +56,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BirdFlapAnimationComponent.cs" />
     <Compile Include="BirdIdleFlyingComponent.cs" />
     <Compile Include="BirdPlayerControlsComponent.cs" />
     <Compile Include="EntityFactory.cs" />
@@ -102,10 +103,22 @@
     <None Include="Assets\Sprites\pipe-green.gtexture">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Assets\Sprites\yellowbird-downflap.gsprite">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Assets\Sprites\yellowbird-downflap.gtexture">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Assets\Sprites\yellowbird-midflap.gsprite">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Assets\Sprites\yellowbird-midflap.gtexture">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Assets\Sprites\yellowbird-upflap.gsprite">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Assets\Sprites\yellowbird-upflap.gtexture">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="game.json">
@@ -151,11 +164,15 @@
     <Content Include="Assets\Sprites\redbird-downflap.png" />
     <Content Include="Assets\Sprites\redbird-midflap.png" />
     <Content Include="Assets\Sprites\redbird-upflap.png" />
-    <Content Include="Assets\Sprites\yellowbird-downflap.png" />
+    <Content Include="Assets\Sprites\yellowbird-downflap.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Sprites\yellowbird-midflap.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Sprites\yellowbird-upflap.png" />
+    <Content Include="Assets\Sprites\yellowbird-upflap.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

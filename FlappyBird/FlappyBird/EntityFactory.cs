@@ -104,6 +104,11 @@ namespace FlappyBird
                 }
             });
             entity.AddComponent(new BirdIdleFlyingComponent());
+            entity.AddComponent(new BirdFlapAnimationComponent(
+                downFlapSprite: _assetStore.GetAsset<Sprite>(new AssetId(new Guid("478361b7-1ad1-44e9-84f9-0a42253ed334"))),
+                midFlapSprite: _assetStore.GetAsset<Sprite>(new AssetId(new Guid("71f76a03-88d4-454c-b372-eaae11fc120f"))),
+                upFlapSprite: _assetStore.GetAsset<Sprite>(new AssetId(new Guid("1e3111a7-9d0f-46e5-81a0-d4bf32e54256")))
+            ));
             entity.AddComponent(new RectangleColliderComponent
             {
                 Dimension = new Vector2(32 - 2, 24 - 2)
