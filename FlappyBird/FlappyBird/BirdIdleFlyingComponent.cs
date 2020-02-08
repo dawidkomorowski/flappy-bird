@@ -24,6 +24,7 @@ namespace FlappyBird
             if (_inputComponent.GetActionState("Flap") && _updatesCounter > 30)
             {
                 Entity.RemoveComponent(this);
+                Entity.AddComponent(new BirdPhysicsComponent());
                 Entity.AddComponent(new BirdPlayerControlsComponent());
             }
         }

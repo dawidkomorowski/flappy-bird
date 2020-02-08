@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="BirdFlapAnimationComponent.cs" />
     <Compile Include="BirdIdleFlyingComponent.cs" />
+    <Compile Include="BirdPhysicsComponent.cs" />
     <Compile Include="BirdPlayerControlsComponent.cs" />
     <Compile Include="EntityFactory.cs" />
     <Compile Include="Extension.cs" />
