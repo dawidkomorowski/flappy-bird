@@ -18,7 +18,7 @@ namespace FlappyBird
 
         public void FixedUpdate(Scene scene)
         {
-            if (GlobalGameState.PlayerIsAlive == false)
+            if (GlobalGameState.CurrentPhase == GlobalGameState.Phase.GameOver)
             {
                 _updatesCounter++;
 

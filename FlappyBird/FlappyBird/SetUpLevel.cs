@@ -18,7 +18,7 @@ namespace FlappyBird
 
         public void Execute(Scene scene)
         {
-            GlobalGameState.PlayerIsAlive = true;
+            GlobalGameState.CurrentPhase = GlobalGameState.Phase.WaitingForPlayer;
 
             scene.AddEntity(_entityFactory.CreateCamera());
 

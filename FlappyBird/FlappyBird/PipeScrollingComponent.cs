@@ -9,7 +9,7 @@ namespace FlappyBird
 
         public override void OnFixedUpdate()
         {
-            if (GlobalGameState.PlayerIsAlive)
+            if (ShouldScroll())
             {
                 var transformComponent = Entity.GetComponent<TransformComponent>();
                 transformComponent.Translation -= new Vector3(Speed, 0, 0);
@@ -19,6 +19,11 @@ namespace FlappyBird
                     Entity.Destroy();
                 }
             }
+        }
+
+        private bool ShouldScroll()
+        {
+            return GlobalGameState.CurrentPhase == GlobalGameState.Phase.WaitingForPlayer || GlobalGameState.CurrentPhase == GlobalGameState.Phase.Playing;
         }
     }
 }

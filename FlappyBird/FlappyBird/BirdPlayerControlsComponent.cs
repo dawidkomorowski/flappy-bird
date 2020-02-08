@@ -22,6 +22,8 @@ namespace FlappyBird
 
             _inputComponent.BindAction("Flap", Flap);
 
+            GlobalGameState.CurrentPhase = GlobalGameState.Phase.Playing;
+
             Flap();
         }
 
@@ -98,7 +100,7 @@ namespace FlappyBird
 
             if (hitTheGround || hitThePipe)
             {
-                GlobalGameState.PlayerIsAlive = false;
+                GlobalGameState.CurrentPhase = GlobalGameState.Phase.GameOver;
                 Entity.RemoveComponent(this);
             }
         }

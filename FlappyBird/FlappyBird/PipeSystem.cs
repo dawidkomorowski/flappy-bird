@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Geisha.Common.Math;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
@@ -26,17 +25,15 @@ namespace FlappyBird
 
         public void FixedUpdate(Scene scene)
         {
-            var state = InferState(scene);
-
-            switch (state)
+            switch (GlobalGameState.CurrentPhase)
             {
-                case State.WaitingForPlayer:
+                case GlobalGameState.Phase.WaitingForPlayer:
                     WaitForPlayer();
                     break;
-                case State.Playing:
+                case GlobalGameState.Phase.Playing:
                     Play(scene);
                     break;
-                case State.GameOver:
+                case GlobalGameState.Phase.GameOver:
                     GameOver();
                     break;
                 default:
@@ -75,32 +72,6 @@ namespace FlappyBird
 
         private void GameOver()
         {
-        }
-
-        private static State InferState(Scene scene)
-        {
-            if (GlobalGameState.PlayerIsAlive)
-            {
-                if (scene.RootEntities.Single(e => e.Name == "Bird").HasComponent<BirdPlayerControlsComponent>())
-                {
-                    return State.Playing;
-                }
-                else
-                {
-                    return State.WaitingForPlayer;
-                }
-            }
-            else
-            {
-                return State.GameOver;
-            }
-        }
-
-        private enum State
-        {
-            WaitingForPlayer,
-            Playing,
-            GameOver
         }
     }
 }

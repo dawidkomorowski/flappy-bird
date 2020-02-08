@@ -2,6 +2,12 @@
 {
     public static class GlobalGameState
     {
-        public static bool PlayerIsAlive { get; set; } = true;
+        public static Phase CurrentPhase { get; set; }
+        public enum Phase
+        {
+            WaitingForPlayer,
+            Playing,
+            GameOver
+        }
     }
 }
