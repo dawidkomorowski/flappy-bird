@@ -18,8 +18,9 @@ namespace FlappyBird
         Entity CreateBackgroundDay();
         Entity CreateGround();
         Entity CreateBird();
-        Entity CreateGameOver();
         Entity CreatePipe();
+        Entity CreateGameOver();
+        Entity CreateGameOverVfx();
     }
 
     public sealed class EntityFactory : IEntityFactory
@@ -116,23 +117,6 @@ namespace FlappyBird
             return entity;
         }
 
-        public Entity CreateGameOver()
-        {
-            var entity = new Entity {Name = "GameOver"};
-            entity.AddComponent(new TransformComponent
-            {
-                Translation = Vector3.Zero,
-                Rotation = Vector3.Zero,
-                Scale = new Vector3(2, 2, 1)
-            });
-            entity.AddComponent(new SpriteRendererComponent
-            {
-                Sprite = _assetStore.GetAsset<Sprite>(new AssetId(new Guid("de7e5788-c21c-4897-b014-c79c41ae39dd"))),
-                SortingLayerName = "UI"
-            });
-            return entity;
-        }
-
         public Entity CreatePipe()
         {
             var entity = new Entity();
@@ -152,6 +136,38 @@ namespace FlappyBird
             {
                 Dimension = new Vector2(52, 320)
             });
+            return entity;
+        }
+
+        public Entity CreateGameOver()
+        {
+            var entity = new Entity {Name = "GameOver"};
+            entity.AddComponent(new TransformComponent
+            {
+                Translation = Vector3.Zero,
+                Rotation = Vector3.Zero,
+                Scale = new Vector3(2, 2, 1)
+            });
+            entity.AddComponent(new SpriteRendererComponent
+            {
+                Sprite = _assetStore.GetAsset<Sprite>(new AssetId(new Guid("de7e5788-c21c-4897-b014-c79c41ae39dd"))),
+                SortingLayerName = "UI"
+            });
+            return entity;
+        }
+
+        public Entity CreateGameOverVfx()
+        {
+            var entity = new Entity();
+            entity.AddComponent(TransformComponent.Default);
+            entity.AddComponent(new RectangleRendererComponent
+            {
+                Color = Color.FromArgb(0, 255, 255, 255),
+                FillInterior = true,
+                SortingLayerName = "VFX",
+                Dimension = new Vector2(1280, 720)
+            });
+            entity.AddComponent(new GameOverVfxComponent());
             return entity;
         }
     }

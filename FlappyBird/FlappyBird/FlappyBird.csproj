@@ -63,6 +63,7 @@
     <Compile Include="EntityFactory.cs" />
     <Compile Include="Extension.cs" />
     <Compile Include="GameOverSystem.cs" />
+    <Compile Include="GameOverVfxComponent.cs" />
     <Compile Include="GlobalGameState.cs" />
     <Compile Include="GroundScrollingComponent.cs" />
     <Compile Include="PipeScrollingComponent.cs" />

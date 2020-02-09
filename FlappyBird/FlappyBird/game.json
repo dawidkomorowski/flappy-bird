@@ -29,7 +29,8 @@
       "Pipe",
       "Bird",
       "Ground",
-      "UI"
+      "UI",
+      "VFX"
     ]
   }
 }
