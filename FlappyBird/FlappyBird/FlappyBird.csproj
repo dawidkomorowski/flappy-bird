@@ -60,6 +60,7 @@
     <Compile Include="BirdIdleFlyingComponent.cs" />
     <Compile Include="BirdPhysicsComponent.cs" />
     <Compile Include="BirdPlayerControlsComponent.cs" />
+    <Compile Include="DebugBirdCollisionBoxComponent.cs" />
     <Compile Include="EntityFactory.cs" />
     <Compile Include="Extension.cs" />
     <Compile Include="GameOverSystem.cs" />
