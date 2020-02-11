@@ -38,6 +38,7 @@ namespace FlappyBird
                 var bird = scene.RootEntities.Single(e => e.Name == "Bird");
                 if (bird.GetComponent<InputComponent>().GetActionState("Flap") && _updatesCounter > 30)
                 {
+                    GlobalGameState.IsRetry = true;
                     _sceneManager.LoadScene(@"Assets\Level\Empty.scene");
                 }
             }

@@ -19,6 +19,7 @@ namespace FlappyBird
         Entity CreateGround();
         Entity CreateBird();
         Entity CreatePipe();
+        Entity CreateIntro();
         Entity CreateGameOver();
         Entity CreateGameOverVfx();
         Entity CreateDebugBirdCollisionBox();
@@ -137,6 +138,24 @@ namespace FlappyBird
             {
                 Dimension = new Vector2(52, 320)
             });
+            return entity;
+        }
+
+        public Entity CreateIntro()
+        {
+            var entity = new Entity();
+            entity.AddComponent(new TransformComponent
+            {
+                Translation = Vector3.Zero,
+                Rotation = Vector3.Zero,
+                Scale = new Vector3(2, 2, 1)
+            });
+            entity.AddComponent(new SpriteRendererComponent
+            {
+                Sprite = _assetStore.GetAsset<Sprite>(new AssetId(new Guid("11a37972-74d7-4873-b5c4-54344ab87d6b"))),
+                SortingLayerName = "UI"
+            });
+            entity.AddComponent(new IntroComponent());
             return entity;
         }
 

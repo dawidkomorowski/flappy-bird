@@ -67,6 +67,7 @@
     <Compile Include="GameOverVfxComponent.cs" />
     <Compile Include="GlobalGameState.cs" />
     <Compile Include="GroundScrollingComponent.cs" />
+    <Compile Include="IntroComponent.cs" />
     <Compile Include="PipeScrollingComponent.cs" />
     <Compile Include="PipeSystem.cs" />
     <Compile Include="SetUpLevel.cs" />
@@ -98,6 +99,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Assets\Sprites\gameover.gtexture">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Assets\Sprites\message.gsprite">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Assets\Sprites\message.gtexture">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Assets\Sprites\pipe-green.gsprite">
@@ -159,7 +166,9 @@
     <Content Include="Assets\Sprites\gameover.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Sprites\message.png" />
+    <Content Include="Assets\Sprites\message.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Sprites\pipe-green.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
