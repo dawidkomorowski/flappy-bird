@@ -59,6 +59,7 @@ namespace FlappyBird
 
                 var pipeUp = _entityFactory.CreatePipe();
                 pipeUp.GetComponent<TransformComponent>().Translation = new Vector3(PipeInitialXPos, pipeYPos, 0);
+                pipeUp.AddComponent(new IncrementScoreComponent());
                 scene.AddEntity(pipeUp);
 
                 var pipeDown = _entityFactory.CreatePipe();

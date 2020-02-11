@@ -19,11 +19,13 @@ namespace FlappyBird
         public void Execute(Scene scene)
         {
             GlobalGameState.CurrentPhase = GlobalGameState.Phase.WaitingForPlayer;
+            GlobalGameState.Score = 0;
 
             SetUpCamera(scene);
             SetUpBackground(scene);
             SetUpGround(scene);
             SetUpBird(scene);
+            SetUpScore(scene);
 
             if (GlobalGameState.IsRetry == false)
             {
@@ -74,6 +76,13 @@ namespace FlappyBird
             var bird = _entityFactory.CreateBird();
             bird.GetComponent<TransformComponent>().Translation = new Vector3(-100, 0, 0);
             scene.AddEntity(bird);
+        }
+
+        private void SetUpScore(Scene scene)
+        {
+            var score = _entityFactory.CreateScore();
+            score.GetComponent<TransformComponent>().Translation = new Vector3(0, 275, 0);
+            scene.AddEntity(score);
         }
 
         private void SetUpIntro(Scene scene)

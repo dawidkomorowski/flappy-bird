@@ -19,6 +19,7 @@ namespace FlappyBird
         Entity CreateGround();
         Entity CreateBird();
         Entity CreatePipe();
+        Entity CreateScore();
         Entity CreateIntro();
         Entity CreateGameOver();
         Entity CreateGameOverVfx();
@@ -138,6 +139,29 @@ namespace FlappyBird
             {
                 Dimension = new Vector2(52, 320)
             });
+            return entity;
+        }
+
+        public Entity CreateScore()
+        {
+            var entity = new Entity();
+            entity.AddComponent(new TransformComponent
+            {
+                Translation = Vector3.Zero,
+                Rotation = Vector3.Zero,
+                Scale = new Vector3(2, 2, 1)
+            });
+            entity.AddComponent(new ScoreComponent(
+                d0Sprite: _assetStore.GetAsset<Sprite>(new AssetId(new Guid("dee07c7d-c0df-4472-9fa5-b793c9a44b6d"))),
+                d1Sprite: _assetStore.GetAsset<Sprite>(new AssetId(new Guid("ef8038dd-4a01-405d-a747-a9cc6f874499"))),
+                d2Sprite: _assetStore.GetAsset<Sprite>(new AssetId(new Guid("37de19dd-e476-44bf-a313-f70ac0c33051"))),
+                d3Sprite: _assetStore.GetAsset<Sprite>(new AssetId(new Guid("85933e40-51dc-4569-9051-a4ca61c4fbcf"))),
+                d4Sprite: _assetStore.GetAsset<Sprite>(new AssetId(new Guid("21a00b80-dbce-42c3-9ce5-a1d0e543927e"))),
+                d5Sprite: _assetStore.GetAsset<Sprite>(new AssetId(new Guid("89361a96-a9ef-44e6-b189-87cc457321d0"))),
+                d6Sprite: _assetStore.GetAsset<Sprite>(new AssetId(new Guid("6bea5224-a823-45a6-ac72-be467509fc2d"))),
+                d7Sprite: _assetStore.GetAsset<Sprite>(new AssetId(new Guid("850eab6d-1fb9-4091-8613-ab72d80327c3"))),
+                d8Sprite: _assetStore.GetAsset<Sprite>(new AssetId(new Guid("3e9a1113-f104-4fe1-8454-d15c44bf9457"))),
+                d9Sprite: _assetStore.GetAsset<Sprite>(new AssetId(new Guid("53305915-2fe5-44af-9027-c220bf2cd8cc")))));
             return entity;
         }
 
