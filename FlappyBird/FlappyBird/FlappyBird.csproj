@@ -60,6 +60,7 @@
     <Compile Include="BirdIdleFlyingComponent.cs" />
     <Compile Include="BirdPhysicsComponent.cs" />
     <Compile Include="BirdPlayerControlsComponent.cs" />
+    <Compile Include="BirdSoundComponent.cs" />
     <Compile Include="DebugBirdCollisionBoxComponent.cs" />
     <Compile Include="EntityFactory.cs" />
     <Compile Include="Extension.cs" />
@@ -71,16 +72,30 @@
     <Compile Include="IntroComponent.cs" />
     <Compile Include="PipeScrollingComponent.cs" />
     <Compile Include="PipeSystem.cs" />
+    <Compile Include="RemoveEntityInNextFrameComponent.cs" />
     <Compile Include="ScoreComponent.cs" />
     <Compile Include="SetUpLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SoundPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <Content Include="Assets\Audio\die.gsound">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Assets\Audio\die.ogg" />
+    <Content Include="Assets\Audio\hit.gsound">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Assets\Audio\hit.ogg" />
+    <Content Include="Assets\Audio\point.gsound">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Assets\Audio\point.ogg" />
     <None Include="Assets\Audio\swoosh.ogg" />
+    <Content Include="Assets\Audio\wing.gsound">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Assets\Audio\wing.ogg" />
     <None Include="Assets\Level\Empty.scene">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -200,11 +215,19 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Assets\Audio\die.wav" />
-    <Content Include="Assets\Audio\hit.wav" />
-    <Content Include="Assets\Audio\point.wav" />
+    <Content Include="Assets\Audio\die.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\hit.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Audio\point.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Audio\swoosh.wav" />
-    <Content Include="Assets\Audio\wing.wav" />
+    <Content Include="Assets\Audio\wing.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Sprites\0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

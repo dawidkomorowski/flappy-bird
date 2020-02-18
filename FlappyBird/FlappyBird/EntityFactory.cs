@@ -1,5 +1,6 @@
 ﻿using System;
 using Geisha.Common.Math;
+using Geisha.Engine.Audio;
 using Geisha.Engine.Core.Assets;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
@@ -24,6 +25,8 @@ namespace FlappyBird
         Entity CreateGameOver();
         Entity CreateGameOverVfx();
         Entity CreateDebugBirdCollisionBox();
+
+        IncrementScoreComponent CreateIncrementScoreComponent();
     }
 
     public sealed class EntityFactory : IEntityFactory
@@ -117,6 +120,10 @@ namespace FlappyBird
             {
                 Dimension = new Vector2(32 - 2, 24 - 2)
             });
+            entity.AddComponent(new BirdSoundComponent(
+                wingSound: _assetStore.GetAsset<ISound>(new AssetId(new Guid("4ee1890b-3b92-45bb-9bee-a81e270f61d6"))),
+                hitSound: _assetStore.GetAsset<ISound>(new AssetId(new Guid("7224f1b5-1471-4741-b720-0a10fc99ea53"))),
+                dieSound: _assetStore.GetAsset<ISound>(new AssetId(new Guid("d1235819-13d0-419f-a50d-71478c1ad9bd")))));
             return entity;
         }
 
@@ -227,6 +234,11 @@ namespace FlappyBird
             });
             entity.AddComponent(new DebugBirdCollisionBoxComponent());
             return entity;
+        }
+
+        public IncrementScoreComponent CreateIncrementScoreComponent()
+        {
+            return new IncrementScoreComponent(_assetStore.GetAsset<ISound>(new AssetId(new Guid("1b7f42a1-e6e1-4140-ad0f-e11f5814145f"))));
         }
     }
 }

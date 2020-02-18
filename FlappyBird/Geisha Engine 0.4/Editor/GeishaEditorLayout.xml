@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LayoutRoot>
   <RootPanel Orientation="Horizontal">
-    <LayoutAnchorablePaneGroup Orientation="Horizontal" DockWidth="300">
-      <LayoutAnchorablePane Id="fe52f4c0-4f33-47ad-98b3-a5de698e8dfb" DockWidth="300">
-        <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Project Explorer" IsSelected="True" ContentId="Project Explorer" CanClose="False" LastActivationTimeStamp="02/08/2020 19:41:40" />
+    <LayoutAnchorablePaneGroup Orientation="Horizontal" DockWidth="401">
+      <LayoutAnchorablePane Id="fe52f4c0-4f33-47ad-98b3-a5de698e8dfb" DockWidth="401">
+        <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Project Explorer" IsSelected="True" ContentId="Project Explorer" CanClose="False" LastActivationTimeStamp="02/17/2020 00:04:41" />
       </LayoutAnchorablePane>
     </LayoutAnchorablePaneGroup>
-    <LayoutDocumentPaneGroup Orientation="Horizontal">
+    <LayoutDocumentPaneGroup Orientation="Horizontal" DockWidth="0.922307692307692*">
       <LayoutDocumentPane />
     </LayoutDocumentPaneGroup>
     <LayoutAnchorablePaneGroup Orientation="Vertical" DockWidth="300">

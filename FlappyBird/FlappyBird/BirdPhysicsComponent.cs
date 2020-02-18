@@ -1,6 +1,5 @@
 ﻿using Geisha.Common.Math;
 using Geisha.Engine.Core.Components;
-using Geisha.Engine.Input.Components;
 using Geisha.Engine.Physics.Components;
 
 namespace FlappyBird
@@ -9,6 +8,7 @@ namespace FlappyBird
     {
         private TransformComponent _transformComponent;
         private RectangleColliderComponent _rectangleColliderComponent;
+        private BirdSoundComponent _birdSoundComponent;
         private const double FlapVelocity = 13;
         private double _gravity = 0.8;
         private double _verticalVelocity;
@@ -17,6 +17,7 @@ namespace FlappyBird
         {
             _transformComponent = Entity.GetComponent<TransformComponent>();
             _rectangleColliderComponent = Entity.GetComponent<RectangleColliderComponent>();
+            _birdSoundComponent = Entity.GetComponent<BirdSoundComponent>();
 
             GlobalGameState.CurrentPhase = GlobalGameState.Phase.Playing;
         }
@@ -34,6 +35,7 @@ namespace FlappyBird
         public void Flap()
         {
             _verticalVelocity = FlapVelocity;
+            _birdSoundComponent.PlayWingSound();
         }
 
         private void ApplyGravity()
@@ -94,6 +96,11 @@ namespace FlappyBird
             {
                 _transformComponent.Translation = _transformComponent.Translation.WithY(groundLevel);
                 _gravity = 0;
+
+                if (GlobalGameState.CurrentPhase == GlobalGameState.Phase.Playing)
+                {
+                    _birdSoundComponent.PlayHitSound();
+                }
             }
 
             var hitThePipe = _rectangleColliderComponent.IsColliding;
@@ -104,6 +111,8 @@ namespace FlappyBird
                 {
                     _verticalVelocity = 0;
                     _gravity *= 1.5;
+                    _birdSoundComponent.PlayHitSound();
+                    _birdSoundComponent.PlayDieSound();
                 }
             }
 
