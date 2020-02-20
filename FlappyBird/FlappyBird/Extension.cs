@@ -20,6 +20,6 @@ namespace FlappyBird
         public string Description { get; } = "";
         public string Category { get; } = "Game";
         public string Author { get; } = "Dawid Komorowski";
-        public Version Version { get; } = new Version(0, 1);
+        public Version Version { get; } = new Version(1, 0);
     }
 }
