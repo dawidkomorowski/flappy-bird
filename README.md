@@ -1,8 +1,5 @@
-# Geisha samples
-This repository consists of samples and demos presenting basic capabilities of Geisha Engine and serves as limited reference of how to use it.
-
-## Flappy Bird
-Clone of original Flappy Bird game implemented in Geisha Engine.
+# Flappy Bird
+Clone of original Flappy Bird game implemented in Geisha Engine (https://github.com/dawidkomorowski/geisha).
 
 ![](FlappyBird/flappy-bird-screenshot.png)
 
