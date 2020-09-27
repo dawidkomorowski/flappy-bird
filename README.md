@@ -1,4 +1,4 @@
-# Flappy Bird
+# FlappyBird
 Clone of original Flappy Bird game implemented in Geisha Engine (https://github.com/dawidkomorowski/geisha).
 
 ![](FlappyBird/flappy-bird-screenshot.png)
