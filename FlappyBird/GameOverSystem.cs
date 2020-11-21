@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Geisha.Engine.Core;
 using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Core.Systems;
 using Geisha.Engine.Input.Components;
@@ -6,7 +7,7 @@ using Geisha.Engine.Rendering.Components;
 
 namespace FlappyBird
 {
-    public sealed class GameOverSystem : IFixedTimeStepSystem
+    public sealed class GameOverSystem : ICustomSystem
     {
         private readonly ISceneManager _sceneManager;
         private readonly IEntityFactory _entityFactory;
@@ -18,7 +19,7 @@ namespace FlappyBird
             _entityFactory = entityFactory;
         }
 
-        public void FixedUpdate(Scene scene)
+        public void ProcessFixedUpdate(Scene scene)
         {
             if (GlobalGameState.CurrentPhase == GlobalGameState.Phase.GameOver)
             {
@@ -46,6 +47,10 @@ namespace FlappyBird
             {
                 _updatesCounter = 0;
             }
+        }
+
+        public void ProcessUpdate(Scene scene, GameTime gameTime)
+        {
         }
 
         public string Name { get; } = typeof(GameOverSystem).FullName;

@@ -45,15 +45,15 @@ namespace FlappyBird
         private void SetUpBackground(Scene scene)
         {
             var backgroundDayLeft = _entityFactory.CreateBackgroundDay();
-            backgroundDayLeft.GetComponent<TransformComponent>().Translation = new Vector3(-512, 0, 0);
+            backgroundDayLeft.GetComponent<Transform2DComponent>().Translation = new Vector2(-512, 0);
             scene.AddEntity(backgroundDayLeft);
 
             var backgroundDayMiddle = _entityFactory.CreateBackgroundDay();
-            backgroundDayMiddle.GetComponent<TransformComponent>().Translation = new Vector3(0, 0, 0);
+            backgroundDayMiddle.GetComponent<Transform2DComponent>().Translation = new Vector2(0, 0);
             scene.AddEntity(backgroundDayMiddle);
 
             var backgroundDayRight = _entityFactory.CreateBackgroundDay();
-            backgroundDayRight.GetComponent<TransformComponent>().Translation = new Vector3(512, 0, 0);
+            backgroundDayRight.GetComponent<Transform2DComponent>().Translation = new Vector2(512, 0);
             scene.AddEntity(backgroundDayRight);
         }
 
@@ -66,7 +66,7 @@ namespace FlappyBird
                 var initialX = i * groundWidth - offsetToTheLeft;
 
                 var ground = _entityFactory.CreateGround();
-                ground.GetComponent<TransformComponent>().Translation = new Vector3(initialX, -350, 0);
+                ground.GetComponent<Transform2DComponent>().Translation = new Vector2(initialX, -350);
                 scene.AddEntity(ground);
             }
         }
@@ -74,14 +74,14 @@ namespace FlappyBird
         private void SetUpBird(Scene scene)
         {
             var bird = _entityFactory.CreateBird();
-            bird.GetComponent<TransformComponent>().Translation = new Vector3(-100, 0, 0);
+            bird.GetComponent<Transform2DComponent>().Translation = new Vector2(-100, 0);
             scene.AddEntity(bird);
         }
 
         private void SetUpScore(Scene scene)
         {
             var score = _entityFactory.CreateScore();
-            score.GetComponent<TransformComponent>().Translation = new Vector3(0, 275, 0);
+            score.GetComponent<Transform2DComponent>().Translation = new Vector2(0, 275);
             scene.AddEntity(score);
         }
 

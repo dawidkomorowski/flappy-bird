@@ -6,13 +6,13 @@ namespace FlappyBird
 {
     public sealed class BirdIdleFlyingComponent : BehaviorComponent
     {
-        private TransformComponent _transformComponent;
+        private Transform2DComponent _transformComponent;
         private InputComponent _inputComponent;
         private int _updatesCounter = 0;
 
         public override void OnStart()
         {
-            _transformComponent = Entity.GetComponent<TransformComponent>();
+            _transformComponent = Entity.GetComponent<Transform2DComponent>();
             _inputComponent = Entity.GetComponent<InputComponent>();
         }
 

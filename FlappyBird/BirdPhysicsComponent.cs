@@ -6,7 +6,7 @@ namespace FlappyBird
 {
     public sealed class BirdPhysicsComponent : BehaviorComponent
     {
-        private TransformComponent _transformComponent;
+        private Transform2DComponent _transformComponent;
         private RectangleColliderComponent _rectangleColliderComponent;
         private BirdSoundComponent _birdSoundComponent;
         private const double FlapVelocity = 13;
@@ -15,7 +15,7 @@ namespace FlappyBird
 
         public override void OnStart()
         {
-            _transformComponent = Entity.GetComponent<TransformComponent>();
+            _transformComponent = Entity.GetComponent<Transform2DComponent>();
             _rectangleColliderComponent = Entity.GetComponent<RectangleColliderComponent>();
             _birdSoundComponent = Entity.GetComponent<BirdSoundComponent>();
 
@@ -45,7 +45,7 @@ namespace FlappyBird
 
         private void ApplyMovement()
         {
-            _transformComponent.Translation += new Vector3(0, _verticalVelocity, 0);
+            _transformComponent.Translation += new Vector2(0, _verticalVelocity);
         }
 
         private void ApplyRotationBasedOnVelocity()
@@ -75,7 +75,7 @@ namespace FlappyBird
                 }
             }
 
-            _transformComponent.Rotation = new Vector3(0, 0, rotation);
+            _transformComponent.Rotation = rotation;
         }
 
         private void ApplyHeightLimit()

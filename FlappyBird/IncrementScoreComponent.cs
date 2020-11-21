@@ -8,8 +8,8 @@ namespace FlappyBird
     {
         private readonly ISound _scoreSound;
         private SoundPlayer _soundPlayer;
-        private TransformComponent _transformComponent;
-        private TransformComponent _birdTransformComponent;
+        private Transform2DComponent _transformComponent;
+        private Transform2DComponent _birdTransformComponent;
 
         public IncrementScoreComponent(ISound scoreSound)
         {
@@ -19,8 +19,8 @@ namespace FlappyBird
         public override void OnStart()
         {
             _soundPlayer = new SoundPlayer(Entity.Scene);
-            _transformComponent = Entity.GetComponent<TransformComponent>();
-            _birdTransformComponent = Entity.Scene.RootEntities.Single(e => e.Name == "Bird").GetComponent<TransformComponent>();
+            _transformComponent = Entity.GetComponent<Transform2DComponent>();
+            _birdTransformComponent = Entity.Scene.RootEntities.Single(e => e.Name == "Bird").GetComponent<Transform2DComponent>();
         }
 
         public override void OnFixedUpdate()

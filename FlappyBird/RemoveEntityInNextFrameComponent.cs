@@ -11,7 +11,7 @@ namespace FlappyBird
         {
             if (_oneFrameProcessed)
             {
-                Entity.Destroy();
+                Entity.DestroyAfterFullFrame();
             }
 
             _oneFrameProcessed = true;

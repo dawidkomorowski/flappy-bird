@@ -11,13 +11,13 @@ namespace FlappyBird
         {
             if (ShouldScroll())
             {
-                var transformComponent = Entity.GetComponent<TransformComponent>();
-                transformComponent.Translation -= new Vector3(Speed, 0, 0);
+                var transformComponent = Entity.GetComponent<Transform2DComponent>();
+                transformComponent.Translation -= new Vector2(Speed, 0);
 
                 if (transformComponent.Translation.X < -1000)
                 {
                     const double groundWidth = 336;
-                    transformComponent.Translation += new Vector3(groundWidth * 10, 0, 0);
+                    transformComponent.Translation += new Vector2(groundWidth * 10, 0);
                 }
             }
         }

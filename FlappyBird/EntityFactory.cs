@@ -41,7 +41,7 @@ namespace FlappyBird
         public Entity CreateCamera()
         {
             var entity = new Entity();
-            entity.AddComponent(TransformComponent.Default);
+            entity.AddComponent(Transform2DComponent.CreateDefault());
             entity.AddComponent(new CameraComponent());
             return entity;
         }
@@ -49,11 +49,11 @@ namespace FlappyBird
         public Entity CreateBackgroundDay()
         {
             var entity = new Entity();
-            entity.AddComponent(new TransformComponent
+            entity.AddComponent(new Transform2DComponent
             {
-                Translation = Vector3.Zero,
-                Rotation = Vector3.Zero,
-                Scale = new Vector3(2, 2, 1)
+                Translation = Vector2.Zero,
+                Rotation = 0,
+                Scale = new Vector2(2, 2)
             });
             entity.AddComponent(new SpriteRendererComponent
             {
@@ -66,7 +66,7 @@ namespace FlappyBird
         public Entity CreateGround()
         {
             var entity = new Entity();
-            entity.AddComponent(TransformComponent.Default);
+            entity.AddComponent(Transform2DComponent.CreateDefault());
             entity.AddComponent(new SpriteRendererComponent
             {
                 Sprite = _assetStore.GetAsset<Sprite>(new AssetId(new Guid("f0b24406-7fce-43e2-98b0-eb903fbc1e76"))),
@@ -79,11 +79,11 @@ namespace FlappyBird
         public Entity CreateBird()
         {
             var entity = new Entity {Name = "Bird"};
-            entity.AddComponent(new TransformComponent
+            entity.AddComponent(new Transform2DComponent
             {
-                Translation = Vector3.Zero,
-                Rotation = Vector3.Zero,
-                Scale = new Vector3(2, 2, 1)
+                Translation = Vector2.Zero,
+                Rotation = 0,
+                Scale = new Vector2(2, 2)
             });
             entity.AddComponent(new SpriteRendererComponent
             {
@@ -130,11 +130,11 @@ namespace FlappyBird
         public Entity CreatePipe()
         {
             var entity = new Entity();
-            entity.AddComponent(new TransformComponent
+            entity.AddComponent(new Transform2DComponent
             {
-                Translation = Vector3.Zero,
-                Rotation = Vector3.Zero,
-                Scale = new Vector3(2, 2, 1)
+                Translation = Vector2.Zero,
+                Rotation = 0,
+                Scale = new Vector2(2, 2)
             });
             entity.AddComponent(new SpriteRendererComponent
             {
@@ -152,11 +152,11 @@ namespace FlappyBird
         public Entity CreateScore()
         {
             var entity = new Entity();
-            entity.AddComponent(new TransformComponent
+            entity.AddComponent(new Transform2DComponent
             {
-                Translation = Vector3.Zero,
-                Rotation = Vector3.Zero,
-                Scale = new Vector3(2, 2, 1)
+                Translation = Vector2.Zero,
+                Rotation = 0,
+                Scale = new Vector2(2, 2)
             });
             entity.AddComponent(new ScoreComponent(
                 d0Sprite: _assetStore.GetAsset<Sprite>(new AssetId(new Guid("dee07c7d-c0df-4472-9fa5-b793c9a44b6d"))),
@@ -175,11 +175,11 @@ namespace FlappyBird
         public Entity CreateIntro()
         {
             var entity = new Entity();
-            entity.AddComponent(new TransformComponent
+            entity.AddComponent(new Transform2DComponent
             {
-                Translation = Vector3.Zero,
-                Rotation = Vector3.Zero,
-                Scale = new Vector3(2, 2, 1)
+                Translation = Vector2.Zero,
+                Rotation = 0,
+                Scale = new Vector2(2, 2)
             });
             entity.AddComponent(new SpriteRendererComponent
             {
@@ -193,11 +193,11 @@ namespace FlappyBird
         public Entity CreateGameOver()
         {
             var entity = new Entity {Name = "GameOver"};
-            entity.AddComponent(new TransformComponent
+            entity.AddComponent(new Transform2DComponent
             {
-                Translation = Vector3.Zero,
-                Rotation = Vector3.Zero,
-                Scale = new Vector3(2, 2, 1)
+                Translation = Vector2.Zero,
+                Rotation = 0,
+                Scale = new Vector2(2, 2)
             });
             entity.AddComponent(new SpriteRendererComponent
             {
@@ -210,7 +210,7 @@ namespace FlappyBird
         public Entity CreateGameOverVfx()
         {
             var entity = new Entity();
-            entity.AddComponent(TransformComponent.Default);
+            entity.AddComponent(Transform2DComponent.CreateDefault());
             entity.AddComponent(new RectangleRendererComponent
             {
                 Color = Color.FromArgb(0, 255, 255, 255),
@@ -225,7 +225,7 @@ namespace FlappyBird
         public Entity CreateDebugBirdCollisionBox()
         {
             var entity = new Entity();
-            entity.AddComponent(TransformComponent.Default);
+            entity.AddComponent(Transform2DComponent.CreateDefault());
             entity.AddComponent(new RectangleRendererComponent
             {
                 SortingLayerName = "UI",

@@ -68,17 +68,17 @@ namespace FlappyBird
 
             if (digit100SpriteRenderer.Visible)
             {
-                digit100SpriteRenderer.Sprite = GetSprite(scoreString[scoreString.Length - 3].ToString());
+                digit100SpriteRenderer.Sprite = GetSprite(scoreString[^3].ToString());
             }
 
             if (digit10SpriteRenderer.Visible)
             {
-                digit10SpriteRenderer.Sprite = GetSprite(scoreString[scoreString.Length - 2].ToString());
+                digit10SpriteRenderer.Sprite = GetSprite(scoreString[^2].ToString());
             }
 
             if (digit1SpriteRenderer.Visible)
             {
-                digit1SpriteRenderer.Sprite = GetSprite(scoreString[scoreString.Length - 1].ToString());
+                digit1SpriteRenderer.Sprite = GetSprite(scoreString[^1].ToString());
             }
 
             if (digit100SpriteRenderer.Visible)
@@ -106,8 +106,8 @@ namespace FlappyBird
 
         private void SetTransform(Entity entity, double relativeX)
         {
-            var transformComponent = entity.GetComponent<TransformComponent>();
-            var parentTransform = Entity.GetComponent<TransformComponent>();
+            var transformComponent = entity.GetComponent<Transform2DComponent>();
+            var parentTransform = Entity.GetComponent<Transform2DComponent>();
 
             transformComponent.Translation = parentTransform.Translation.WithX(parentTransform.Translation.X + relativeX);
             transformComponent.Rotation = parentTransform.Rotation;
@@ -117,7 +117,7 @@ namespace FlappyBird
         private Entity CreateEntity()
         {
             var entity = new Entity();
-            entity.AddComponent(TransformComponent.Default);
+            entity.AddComponent(Transform2DComponent.CreateDefault());
             entity.AddComponent(new SpriteRendererComponent
             {
                 Visible = false,

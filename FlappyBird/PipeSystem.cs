@@ -1,5 +1,6 @@
 ﻿using System;
 using Geisha.Common.Math;
+using Geisha.Engine.Core;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Core.Systems;
@@ -7,7 +8,7 @@ using Geisha.Engine.Rendering.Components;
 
 namespace FlappyBird
 {
-    public sealed class PipeSystem : IFixedTimeStepSystem
+    public sealed class PipeSystem : ICustomSystem
     {
         private const int PipeTimeInterval = 90;
         private const double PipeInitialXPos = 1000;
@@ -23,7 +24,7 @@ namespace FlappyBird
             _entityFactory = entityFactory;
         }
 
-        public void FixedUpdate(Scene scene)
+        public void ProcessFixedUpdate(Scene scene)
         {
             switch (GlobalGameState.CurrentPhase)
             {
@@ -39,6 +40,10 @@ namespace FlappyBird
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+
+        public void ProcessUpdate(Scene scene, GameTime gameTime)
+        {
         }
 
         public string Name { get; } = typeof(PipeSystem).FullName;
@@ -58,14 +63,14 @@ namespace FlappyBird
                 var pipeYPos = MinimumPipeYPos + _random.NextDouble() * (MaximumPipeYPos - MinimumPipeYPos);
 
                 var pipeUp = _entityFactory.CreatePipe();
-                pipeUp.GetComponent<TransformComponent>().Translation = new Vector3(PipeInitialXPos, pipeYPos, 0);
+                pipeUp.GetComponent<Transform2DComponent>().Translation = new Vector2(PipeInitialXPos, pipeYPos);
                 pipeUp.AddComponent(_entityFactory.CreateIncrementScoreComponent());
                 scene.AddEntity(pipeUp);
 
                 var pipeDown = _entityFactory.CreatePipe();
-                var pipeDownTransform = pipeDown.GetComponent<TransformComponent>();
+                var pipeDownTransform = pipeDown.GetComponent<Transform2DComponent>();
                 var pipeHeight = pipeDown.GetComponent<SpriteRendererComponent>().Sprite.Rectangle.Height * pipeDownTransform.Scale.Y;
-                pipeDownTransform.Translation = new Vector3(PipeInitialXPos, pipeYPos + pipeHeight + GapBetweenPipes, 0);
+                pipeDownTransform.Translation = new Vector2(PipeInitialXPos, pipeYPos + pipeHeight + GapBetweenPipes);
                 pipeDownTransform.Scale = pipeDownTransform.Scale.WithY(-pipeDownTransform.Scale.Y);
                 scene.AddEntity(pipeDown);
             }

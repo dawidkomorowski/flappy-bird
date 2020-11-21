@@ -9,7 +9,7 @@ namespace FlappyBird
     {
         private readonly Sprite[] _animationFrames;
         private SpriteRendererComponent _spriteRendererComponent;
-        private TransformComponent _transformComponent;
+        private Transform2DComponent _transformComponent;
 
         private int _updateCounter;
         private int _animationFrameCounter;
@@ -27,7 +27,7 @@ namespace FlappyBird
         public override void OnStart()
         {
             _spriteRendererComponent = Entity.GetComponent<SpriteRendererComponent>();
-            _transformComponent = Entity.GetComponent<TransformComponent>();
+            _transformComponent = Entity.GetComponent<Transform2DComponent>();
         }
 
         public override void OnFixedUpdate()
@@ -55,7 +55,7 @@ namespace FlappyBird
 
         private bool IsBirdFallingDown()
         {
-            var angle = Angle.Rad2Deg(_transformComponent.Rotation.Z);
+            var angle = Angle.Rad2Deg(_transformComponent.Rotation);
             return angle < -85;
         }
     }

@@ -8,7 +8,7 @@ namespace FlappyBird
         {
             if (GlobalGameState.CurrentPhase == GlobalGameState.Phase.WaitingForPlayer) return;
 
-            Entity.Destroy();
+            Entity.DestroyAfterFullFrame();
         }
     }
 }

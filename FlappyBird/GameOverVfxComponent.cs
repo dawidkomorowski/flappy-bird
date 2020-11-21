@@ -1,5 +1,5 @@
-﻿using Geisha.Engine.Core.Components;
-using Geisha.Engine.Rendering;
+﻿using Geisha.Common.Math;
+using Geisha.Engine.Core.Components;
 using Geisha.Engine.Rendering.Components;
 
 namespace FlappyBird
@@ -33,7 +33,7 @@ namespace FlappyBird
 
             if (_updateCounter > AnimationTime)
             {
-                Entity.Destroy();
+                Entity.DestroyAfterFullFrame();
             }
         }
 

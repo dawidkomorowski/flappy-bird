@@ -6,13 +6,13 @@ namespace FlappyBird
 {
     public sealed class DebugBirdCollisionBoxComponent : BehaviorComponent
     {
-        private TransformComponent _thisTransformComponent;
-        private TransformComponent _birdTransformComponent;
+        private Transform2DComponent _thisTransformComponent;
+        private Transform2DComponent _birdTransformComponent;
 
         public override void OnStart()
         {
-            _thisTransformComponent = Entity.GetComponent<TransformComponent>();
-            _birdTransformComponent = Entity.Scene.RootEntities.Single(e => e.Name == "Bird").GetComponent<TransformComponent>();
+            _thisTransformComponent = Entity.GetComponent<Transform2DComponent>();
+            _birdTransformComponent = Entity.Scene.RootEntities.Single(e => e.Name == "Bird").GetComponent<Transform2DComponent>();
         }
 
         public override void OnUpdate(GameTime gameTime)
