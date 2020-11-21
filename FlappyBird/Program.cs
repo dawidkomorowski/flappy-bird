@@ -3,6 +3,8 @@ using Geisha.Engine.Windows;
 
 namespace FlappyBird
 {
+    // TODO Use Animation system of the engine instead of custom code in BirdFlapAnimationComponent.
+    // TODO Fix warnings about possible null reference exceptions.
     internal static class Program
     {
         /// <summary>
