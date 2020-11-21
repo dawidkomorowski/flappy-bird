@@ -42,7 +42,11 @@ namespace FlappyBird
         {
             var entity = new Entity();
             entity.AddComponent(Transform2DComponent.CreateDefault());
-            entity.AddComponent(new CameraComponent());
+            entity.AddComponent(new CameraComponent
+            {
+                AspectRatioBehavior = AspectRatioBehavior.Overscan,
+                ViewRectangle = new Vector2(1280, 720)
+            });
             return entity;
         }
 

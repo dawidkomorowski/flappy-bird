@@ -1,4 +1,5 @@
-﻿using Geisha.Engine.Core.Components;
+﻿using Geisha.Common.Math;
+using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Rendering;
 using Geisha.Engine.Rendering.Components;
@@ -83,14 +84,14 @@ namespace FlappyBird
 
             if (digit100SpriteRenderer.Visible)
             {
-                SetTransform(_digit100Entity, -50);
+                SetTransform(_digit100Entity, -30);
                 SetTransform(_digit10Entity, 0);
-                SetTransform(_digit1Entity, 50);
+                SetTransform(_digit1Entity, 30);
             }
             else if (digit10SpriteRenderer.Visible)
             {
-                SetTransform(_digit10Entity, -25);
-                SetTransform(_digit1Entity, 25);
+                SetTransform(_digit10Entity, -15);
+                SetTransform(_digit1Entity, 15);
             }
             else
             {
@@ -104,17 +105,13 @@ namespace FlappyBird
             return _digitSprites[intDigit];
         }
 
-        private void SetTransform(Entity entity, double relativeX)
+        private static void SetTransform(Entity entity, double relativeX)
         {
             var transformComponent = entity.GetComponent<Transform2DComponent>();
-            var parentTransform = Entity.GetComponent<Transform2DComponent>();
-
-            transformComponent.Translation = parentTransform.Translation.WithX(parentTransform.Translation.X + relativeX);
-            transformComponent.Rotation = parentTransform.Rotation;
-            transformComponent.Scale = parentTransform.Scale;
+            transformComponent.Translation = new Vector2(relativeX, 0);
         }
 
-        private Entity CreateEntity()
+        private static Entity CreateEntity()
         {
             var entity = new Entity();
             entity.AddComponent(Transform2DComponent.CreateDefault());
