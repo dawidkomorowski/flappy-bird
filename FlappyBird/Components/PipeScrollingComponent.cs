@@ -1,9 +1,9 @@
 ﻿using Geisha.Common.Math;
 using Geisha.Engine.Core.Components;
 
-namespace FlappyBird
+namespace FlappyBird.Components
 {
-    public sealed class GroundScrollingComponent : BehaviorComponent
+    public sealed class PipeScrollingComponent : BehaviorComponent
     {
         private const double Speed = 5;
 
@@ -16,8 +16,7 @@ namespace FlappyBird
 
                 if (transformComponent.Translation.X < -1000)
                 {
-                    const double groundWidth = 336;
-                    transformComponent.Translation += new Vector2(groundWidth * 10, 0);
+                    Entity.DestroyAfterFullFrame();
                 }
             }
         }

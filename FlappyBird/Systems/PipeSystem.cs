@@ -6,7 +6,7 @@ using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Core.Systems;
 using Geisha.Engine.Rendering.Components;
 
-namespace FlappyBird
+namespace FlappyBird.Systems
 {
     public sealed class PipeSystem : ICustomSystem
     {

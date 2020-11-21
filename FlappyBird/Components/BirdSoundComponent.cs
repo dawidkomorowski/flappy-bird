@@ -2,7 +2,7 @@
 using Geisha.Engine.Core;
 using Geisha.Engine.Core.Components;
 
-namespace FlappyBird
+namespace FlappyBird.Components
 {
     public sealed class BirdSoundComponent : BehaviorComponent
     {

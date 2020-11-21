@@ -5,7 +5,7 @@ using Geisha.Engine.Core.Systems;
 using Geisha.Engine.Input.Components;
 using Geisha.Engine.Rendering.Components;
 
-namespace FlappyBird
+namespace FlappyBird.Systems
 {
     public sealed class GameOverSystem : ICustomSystem
     {

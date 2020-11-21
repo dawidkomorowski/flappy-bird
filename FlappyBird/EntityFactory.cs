@@ -1,4 +1,5 @@
 ﻿using System;
+using FlappyBird.Components;
 using Geisha.Common.Math;
 using Geisha.Engine.Audio;
 using Geisha.Engine.Core.Assets;

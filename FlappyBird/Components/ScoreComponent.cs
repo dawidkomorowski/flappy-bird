@@ -4,7 +4,7 @@ using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Rendering;
 using Geisha.Engine.Rendering.Components;
 
-namespace FlappyBird
+namespace FlappyBird.Components
 {
     public sealed class ScoreComponent : BehaviorComponent
     {

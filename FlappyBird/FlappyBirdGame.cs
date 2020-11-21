@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using FlappyBird.Systems;
 using Geisha.Engine;
 
 namespace FlappyBird

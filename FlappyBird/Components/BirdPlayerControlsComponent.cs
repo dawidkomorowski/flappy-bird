@@ -1,7 +1,7 @@
 ﻿using Geisha.Engine.Core.Components;
 using Geisha.Engine.Input.Components;
 
-namespace FlappyBird
+namespace FlappyBird.Components
 {
     public sealed class BirdPlayerControlsComponent : BehaviorComponent
     {

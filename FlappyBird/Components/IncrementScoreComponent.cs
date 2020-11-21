@@ -2,7 +2,7 @@
 using Geisha.Engine.Audio;
 using Geisha.Engine.Core.Components;
 
-namespace FlappyBird
+namespace FlappyBird.Components
 {
     public sealed class IncrementScoreComponent : BehaviorComponent
     {

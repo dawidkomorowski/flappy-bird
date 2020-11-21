@@ -1,6 +1,6 @@
 ﻿using Geisha.Engine.Core.Components;
 
-namespace FlappyBird
+namespace FlappyBird.Components
 {
     public sealed class IntroComponent : BehaviorComponent
     {

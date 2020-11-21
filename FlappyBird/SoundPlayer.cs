@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using FlappyBird.Components;
 using Geisha.Engine.Audio;
 using Geisha.Engine.Audio.Components;
 using Geisha.Engine.Core.SceneModel;

@@ -3,7 +3,7 @@ using Geisha.Engine.Core.Components;
 using Geisha.Engine.Rendering;
 using Geisha.Engine.Rendering.Components;
 
-namespace FlappyBird
+namespace FlappyBird.Components
 {
     public sealed class BirdFlapAnimationComponent : BehaviorComponent
     {
