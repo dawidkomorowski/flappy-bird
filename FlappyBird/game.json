@@ -21,8 +21,8 @@
   },
   "Rendering": {
     "EnableVSync": false,
-    "ScreenHeight": 1280,
-    "ScreenWidth": 720,
+    "ScreenHeight": 720,
+    "ScreenWidth": 1280,
     "SortingLayersOrder": [
       "Background",
       "Pipe",
