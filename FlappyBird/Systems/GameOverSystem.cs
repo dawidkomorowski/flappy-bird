@@ -53,6 +53,6 @@ namespace FlappyBird.Systems
         {
         }
 
-        public string Name { get; } = typeof(GameOverSystem).FullName;
+        public string Name { get; } = "FlappyBird.GameOverSystem";
     }
 }

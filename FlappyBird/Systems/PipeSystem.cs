@@ -46,7 +46,7 @@ namespace FlappyBird.Systems
         {
         }
 
-        public string Name { get; } = typeof(PipeSystem).FullName;
+        public string Name { get; } = "FlappyBird.PipeSystem";
 
         private void WaitForPlayer()
         {

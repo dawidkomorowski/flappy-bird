@@ -1,18 +1,19 @@
 ﻿using Geisha.Engine.Audio;
-using Geisha.Engine.Core;
+using Geisha.Engine.Audio.Backend;
 using Geisha.Engine.Core.Components;
 
 namespace FlappyBird.Components
 {
     public sealed class BirdSoundComponent : BehaviorComponent
     {
+        private readonly IAudioPlayer _audioPlayer;
         private readonly ISound _wingSound;
         private readonly ISound _hitSound;
         private readonly ISound _dieSound;
-        private SoundPlayer _soundPlayer;
 
-        public BirdSoundComponent(ISound wingSound, ISound hitSound, ISound dieSound)
+        public BirdSoundComponent(IAudioPlayer audioPlayer, ISound wingSound, ISound hitSound, ISound dieSound)
         {
+            _audioPlayer = audioPlayer;
             _wingSound = wingSound;
             _hitSound = hitSound;
             _dieSound = dieSound;
@@ -20,27 +21,17 @@ namespace FlappyBird.Components
 
         public void PlayWingSound()
         {
-            _soundPlayer.Play(_wingSound);
+            _audioPlayer.PlayOnce(_wingSound);
         }
 
         public void PlayHitSound()
         {
-            _soundPlayer.Play(_hitSound);
+            _audioPlayer.PlayOnce(_hitSound);
         }
 
         public void PlayDieSound()
         {
-            _soundPlayer.Play(_dieSound);
-        }
-
-        public override void OnStart()
-        {
-            _soundPlayer = new SoundPlayer(Entity.Scene);
-        }
-
-        public override void OnUpdate(GameTime gameTime)
-        {
-            _soundPlayer.Update();
+            _audioPlayer.PlayOnce(_dieSound);
         }
     }
 }

@@ -2,6 +2,7 @@
 using FlappyBird.Components;
 using Geisha.Common.Math;
 using Geisha.Engine.Audio;
+using Geisha.Engine.Audio.Backend;
 using Geisha.Engine.Core.Assets;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
@@ -32,10 +33,12 @@ namespace FlappyBird
     public sealed class EntityFactory : IEntityFactory
     {
         private readonly IAssetStore _assetStore;
+        private readonly IAudioPlayer _audioPlayer;
 
-        public EntityFactory(IAssetStore assetStore)
+        public EntityFactory(IAssetStore assetStore, IAudioBackend audioBackend)
         {
             _assetStore = assetStore;
+            _audioPlayer = audioBackend.AudioPlayer;
         }
 
         public Entity CreateCamera()
@@ -125,9 +128,11 @@ namespace FlappyBird
                 Dimension = new Vector2(32 - 2, 24 - 2)
             });
             entity.AddComponent(new BirdSoundComponent(
+                audioPlayer: _audioPlayer,
                 wingSound: _assetStore.GetAsset<ISound>(new AssetId(new Guid("4ee1890b-3b92-45bb-9bee-a81e270f61d6"))),
                 hitSound: _assetStore.GetAsset<ISound>(new AssetId(new Guid("7224f1b5-1471-4741-b720-0a10fc99ea53"))),
-                dieSound: _assetStore.GetAsset<ISound>(new AssetId(new Guid("d1235819-13d0-419f-a50d-71478c1ad9bd")))));
+                dieSound: _assetStore.GetAsset<ISound>(new AssetId(new Guid("d1235819-13d0-419f-a50d-71478c1ad9bd")))
+            ));
             return entity;
         }
 
@@ -172,7 +177,8 @@ namespace FlappyBird
                 d6Sprite: _assetStore.GetAsset<Sprite>(new AssetId(new Guid("6bea5224-a823-45a6-ac72-be467509fc2d"))),
                 d7Sprite: _assetStore.GetAsset<Sprite>(new AssetId(new Guid("850eab6d-1fb9-4091-8613-ab72d80327c3"))),
                 d8Sprite: _assetStore.GetAsset<Sprite>(new AssetId(new Guid("3e9a1113-f104-4fe1-8454-d15c44bf9457"))),
-                d9Sprite: _assetStore.GetAsset<Sprite>(new AssetId(new Guid("53305915-2fe5-44af-9027-c220bf2cd8cc")))));
+                d9Sprite: _assetStore.GetAsset<Sprite>(new AssetId(new Guid("53305915-2fe5-44af-9027-c220bf2cd8cc")))
+            ));
             return entity;
         }
 
@@ -228,7 +234,10 @@ namespace FlappyBird
 
         public IncrementScoreComponent CreateIncrementScoreComponent()
         {
-            return new IncrementScoreComponent(_assetStore.GetAsset<ISound>(new AssetId(new Guid("1b7f42a1-e6e1-4140-ad0f-e11f5814145f"))));
+            return new IncrementScoreComponent(
+                audioPlayer: _audioPlayer,
+                scoreSound: _assetStore.GetAsset<ISound>(new AssetId(new Guid("1b7f42a1-e6e1-4140-ad0f-e11f5814145f")))
+            );
         }
     }
 }
