@@ -33,7 +33,6 @@ namespace FlappyBird
             }
 
             SetUpGameOver(scene);
-            //SetUpDebug(scene);
         }
 
         private void SetUpCamera(Scene scene)
@@ -96,12 +95,6 @@ namespace FlappyBird
             var gameOver = _entityFactory.CreateGameOver();
             gameOver.GetComponent<SpriteRendererComponent>().Visible = false;
             scene.AddEntity(gameOver);
-        }
-
-        private void SetUpDebug(Scene scene)
-        {
-            var debugBirdCollisionBox = _entityFactory.CreateDebugBirdCollisionBox();
-            scene.AddEntity(debugBirdCollisionBox);
         }
     }
 }

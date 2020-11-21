@@ -24,7 +24,6 @@ namespace FlappyBird
         Entity CreateIntro();
         Entity CreateGameOver();
         Entity CreateGameOverVfx();
-        Entity CreateDebugBirdCollisionBox();
 
         IncrementScoreComponent CreateIncrementScoreComponent();
     }
@@ -223,20 +222,6 @@ namespace FlappyBird
                 Dimension = new Vector2(1280, 720)
             });
             entity.AddComponent(new GameOverVfxComponent());
-            return entity;
-        }
-
-        public Entity CreateDebugBirdCollisionBox()
-        {
-            var entity = new Entity();
-            entity.AddComponent(Transform2DComponent.CreateDefault());
-            entity.AddComponent(new RectangleRendererComponent
-            {
-                SortingLayerName = "UI",
-                Color = Color.FromArgb(255, 255, 0, 0),
-                Dimension = new Vector2(32 - 2, 24 - 2),
-            });
-            entity.AddComponent(new DebugBirdCollisionBoxComponent());
             return entity;
         }
 
