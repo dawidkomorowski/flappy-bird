@@ -1,6 +1,10 @@
 ﻿{
-  "CoreConfiguration": {
+  "Core": {
     "AssetsRootDirectoryPath": "Assets",
+    "CustomSystemsExecutionOrder": [
+      "FlappyBird.PipeSystem",
+      "FlappyBird.GameOverSystem"
+    ],
     "FixedUpdatesPerFrameLimit": 30,
     "FixedUpdatesPerSecond": 60,
     "ShowAllEntitiesCount": false,
@@ -10,20 +14,15 @@
     "ShowTotalFrames": false,
     "ShowTotalTime": false,
     "ShowSystemsExecutionTimes": false,
-    "StartUpScene": "Assets\\Level\\Empty.scene",
-    "SystemsExecutionChain": [
-      "Geisha.Engine.Input.Systems.InputSystem",
-      "Geisha.Engine.Core.Systems.BehaviorSystem",
-      "FlappyBird.PipeSystem",
-      "FlappyBird.GameOverSystem",
-      "Geisha.Engine.Physics.Systems.PhysicsSystem",
-      "Geisha.Engine.Audio.Systems.AudioSystem",
-      "Geisha.Engine.Rendering.Systems.RenderingSystem",
-      "Geisha.Engine.Core.Systems.EntityDestructionSystem"
-    ]
+    "StartUpScene": "Assets\\Level\\Empty.scene"
   },
-  "RenderingConfiguration": {
+  "Physics": {
+    "RenderCollisionGeometry": false
+  },
+  "Rendering": {
     "EnableVSync": false,
+    "ScreenHeight": 1280,
+    "ScreenWidth": 720,
     "SortingLayersOrder": [
       "Background",
       "Pipe",
