@@ -3,7 +3,6 @@ using Geisha.Engine.Windows;
 
 namespace FlappyBird
 {
-    // TODO Update screen shot (new window title).
     internal static class Program
     {
         /// <summary>

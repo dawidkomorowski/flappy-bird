@@ -16,6 +16,6 @@ namespace FlappyBird
             componentsRegistry.AutofacContainerBuilder.RegisterType<EntityFactory>().As<IEntityFactory>();
         }
 
-        public string WindowTitle => $"Flappy Bird (Geisha Engine {Assembly.GetAssembly(typeof(IGame))?.GetName().Version})";
+        public string WindowTitle => $"FlappyBird (Geisha Engine {Assembly.GetAssembly(typeof(IGame))?.GetName().Version})";
     }
 }
