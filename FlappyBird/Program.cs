@@ -3,7 +3,7 @@ using Geisha.Engine.Windows;
 
 namespace FlappyBird
 {
-    // TODO Fix warnings about possible null reference exceptions.
+    // TODO Revise sound file for flap as it is crackling a bit while played.
     // TODO Update screen shot (new window title).
     internal static class Program
     {

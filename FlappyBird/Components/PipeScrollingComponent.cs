@@ -1,4 +1,5 @@
-﻿using Geisha.Common.Math;
+﻿using System.Diagnostics;
+using Geisha.Common.Math;
 using Geisha.Engine.Core.Components;
 
 namespace FlappyBird.Components
@@ -11,6 +12,8 @@ namespace FlappyBird.Components
         {
             if (ShouldScroll())
             {
+                Debug.Assert(Entity != null, nameof(Entity) + " != null");
+
                 var transformComponent = Entity.GetComponent<Transform2DComponent>();
                 transformComponent.Translation -= new Vector2(Speed, 0);
 

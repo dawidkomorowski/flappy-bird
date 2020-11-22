@@ -1,4 +1,5 @@
-﻿using Geisha.Common.Math;
+﻿using System.Diagnostics;
+using Geisha.Common.Math;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Core.SceneModel;
 using Geisha.Engine.Rendering;
@@ -9,9 +10,9 @@ namespace FlappyBird.Components
     public sealed class ScoreComponent : BehaviorComponent
     {
         private readonly Sprite[] _digitSprites;
-        private Entity _digit100Entity;
-        private Entity _digit10Entity;
-        private Entity _digit1Entity;
+        private Entity _digit100Entity = null!;
+        private Entity _digit10Entity = null!;
+        private Entity _digit1Entity = null!;
 
         public ScoreComponent(
             Sprite d0Sprite,
@@ -43,6 +44,8 @@ namespace FlappyBird.Components
             _digit100Entity = CreateEntity();
             _digit10Entity = CreateEntity();
             _digit1Entity = CreateEntity();
+
+            Debug.Assert(Entity != null, nameof(Entity) + " != null");
 
             Entity.AddChild(_digit100Entity);
             Entity.AddChild(_digit10Entity);

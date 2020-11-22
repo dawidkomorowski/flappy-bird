@@ -1,4 +1,5 @@
-﻿using Geisha.Common.Math;
+﻿using System.Diagnostics;
+using Geisha.Common.Math;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Physics.Components;
 
@@ -6,15 +7,17 @@ namespace FlappyBird.Components
 {
     public sealed class BirdPhysicsComponent : BehaviorComponent
     {
-        private Transform2DComponent _transformComponent;
-        private RectangleColliderComponent _rectangleColliderComponent;
-        private BirdSoundComponent _birdSoundComponent;
+        private Transform2DComponent _transformComponent = null!;
+        private RectangleColliderComponent _rectangleColliderComponent = null!;
+        private BirdSoundComponent _birdSoundComponent = null!;
         private const double FlapVelocity = 13;
         private double _gravity = 0.8;
         private double _verticalVelocity;
 
         public override void OnStart()
         {
+            Debug.Assert(Entity != null, nameof(Entity) + " != null");
+
             _transformComponent = Entity.GetComponent<Transform2DComponent>();
             _rectangleColliderComponent = Entity.GetComponent<RectangleColliderComponent>();
             _birdSoundComponent = Entity.GetComponent<BirdSoundComponent>();

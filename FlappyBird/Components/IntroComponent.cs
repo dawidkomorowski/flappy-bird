@@ -1,4 +1,5 @@
-﻿using Geisha.Engine.Core.Components;
+﻿using System.Diagnostics;
+using Geisha.Engine.Core.Components;
 
 namespace FlappyBird.Components
 {
@@ -8,6 +9,7 @@ namespace FlappyBird.Components
         {
             if (GlobalGameState.CurrentPhase == GlobalGameState.Phase.WaitingForPlayer) return;
 
+            Debug.Assert(Entity != null, nameof(Entity) + " != null");
             Entity.DestroyAfterFullFrame();
         }
     }

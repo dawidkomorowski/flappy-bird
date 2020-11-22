@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Geisha.Common.Math;
 using Geisha.Engine.Core;
 using Geisha.Engine.Core.Components;
@@ -69,7 +70,10 @@ namespace FlappyBird.Systems
 
                 var pipeDown = _entityFactory.CreatePipe();
                 var pipeDownTransform = pipeDown.GetComponent<Transform2DComponent>();
-                var pipeHeight = pipeDown.GetComponent<SpriteRendererComponent>().Sprite.Rectangle.Height * pipeDownTransform.Scale.Y;
+                var spriteRendererComponent = pipeDown.GetComponent<SpriteRendererComponent>();
+                
+                Debug.Assert(spriteRendererComponent.Sprite != null, "spriteRendererComponent.Sprite != null");
+                var pipeHeight = spriteRendererComponent.Sprite.Rectangle.Height * pipeDownTransform.Scale.Y;
                 pipeDownTransform.Translation = new Vector2(PipeInitialXPos, pipeYPos + pipeHeight + GapBetweenPipes);
                 pipeDownTransform.Scale = pipeDownTransform.Scale.WithY(-pipeDownTransform.Scale.Y);
                 scene.AddEntity(pipeDown);

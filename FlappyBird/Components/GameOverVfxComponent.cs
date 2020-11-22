@@ -1,4 +1,5 @@
-﻿using Geisha.Common.Math;
+﻿using System.Diagnostics;
+using Geisha.Common.Math;
 using Geisha.Engine.Core.Components;
 using Geisha.Engine.Rendering.Components;
 
@@ -6,12 +7,13 @@ namespace FlappyBird.Components
 {
     public sealed class GameOverVfxComponent : BehaviorComponent
     {
-        private RectangleRendererComponent _rectangleRendererComponent;
+        private RectangleRendererComponent _rectangleRendererComponent = null!;
         private const int AnimationTime = 20;
         private int _updateCounter;
 
         public override void OnStart()
         {
+            Debug.Assert(Entity != null, nameof(Entity) + " != null");
             _rectangleRendererComponent = Entity.GetComponent<RectangleRendererComponent>();
         }
 
@@ -33,6 +35,7 @@ namespace FlappyBird.Components
 
             if (_updateCounter > AnimationTime)
             {
+                Debug.Assert(Entity != null, nameof(Entity) + " != null");
                 Entity.DestroyAfterFullFrame();
             }
         }
