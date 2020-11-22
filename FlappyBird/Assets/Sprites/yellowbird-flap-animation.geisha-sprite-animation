@@ -1,0 +1,22 @@
+﻿{
+  "AssetId": "FD8C8E61-A4B0-43C9-A89D-B22554B8A3F7",
+  "Frames": [
+    {
+      "SpriteAssetId": "71f76a03-88d4-454c-b372-eaae11fc120f",
+      "Duration": 1.0
+    },
+    {
+      "SpriteAssetId": "478361b7-1ad1-44e9-84f9-0a42253ed334",
+      "Duration": 1.0
+    },
+    {
+      "SpriteAssetId": "71f76a03-88d4-454c-b372-eaae11fc120f",
+      "Duration": 1.0
+    },
+    {
+      "SpriteAssetId": "1e3111a7-9d0f-46e5-81a0-d4bf32e54256",
+      "Duration": 1.0
+    }
+  ],
+  "DurationTicks": 3000000
+}

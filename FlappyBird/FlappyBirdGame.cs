@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using System.Reflection;
+using Autofac;
 using FlappyBird.Systems;
 using Geisha.Engine;
 
@@ -15,6 +16,6 @@ namespace FlappyBird
             componentsRegistry.AutofacContainerBuilder.RegisterType<EntityFactory>().As<IEntityFactory>();
         }
 
-        public string WindowTitle => "Flappy Bird (Geisha Engine 0.5)";
+        public string WindowTitle => $"Flappy Bird (Geisha Engine {Assembly.GetAssembly(typeof(IGame))?.GetName().Version})";
     }
 }

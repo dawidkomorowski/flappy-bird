@@ -1,55 +1,46 @@
 ﻿using Geisha.Common.Math;
+using Geisha.Engine.Animation.Components;
 using Geisha.Engine.Core.Components;
-using Geisha.Engine.Rendering;
-using Geisha.Engine.Rendering.Components;
 
 namespace FlappyBird.Components
 {
     public sealed class BirdFlapAnimationComponent : BehaviorComponent
     {
-        private readonly Sprite[] _animationFrames;
-        private SpriteRendererComponent _spriteRendererComponent;
         private Transform2DComponent _transformComponent;
-
-        private int _updateCounter;
-        private int _animationFrameCounter;
-        private const int AnimationDuration = 5;
-
-        public BirdFlapAnimationComponent(Sprite downFlapSprite, Sprite midFlapSprite, Sprite upFlapSprite)
-        {
-            _animationFrames = new Sprite[4];
-            _animationFrames[0] = downFlapSprite;
-            _animationFrames[1] = midFlapSprite;
-            _animationFrames[2] = upFlapSprite;
-            _animationFrames[3] = midFlapSprite;
-        }
+        private SpriteAnimationComponent _spriteAnimationComponent;
+        private const string FlapAnimation = "Flap";
 
         public override void OnStart()
         {
-            _spriteRendererComponent = Entity.GetComponent<SpriteRendererComponent>();
             _transformComponent = Entity.GetComponent<Transform2DComponent>();
+            _spriteAnimationComponent = Entity.GetComponent<SpriteAnimationComponent>();
+
+            _spriteAnimationComponent.PlayAnimation(FlapAnimation);
+            _spriteAnimationComponent.Stop();
         }
 
         public override void OnFixedUpdate()
         {
             if (GlobalGameState.CurrentPhase == GlobalGameState.Phase.Playing)
             {
-                if (IsBirdFallingDown())
+                if (_spriteAnimationComponent.IsPlaying)
                 {
-                    _spriteRendererComponent.Sprite = _animationFrames[1];
+                    if (IsBirdFallingDown())
+                    {
+                        _spriteAnimationComponent.Stop();
+                    }
                 }
                 else
                 {
-                    _updateCounter++;
-
-                    if (_updateCounter % AnimationDuration == 0)
+                    if (!IsBirdFallingDown())
                     {
-                        _animationFrameCounter++;
+                        _spriteAnimationComponent.Resume();
                     }
-
-                    var frameIndex = _animationFrameCounter % 4;
-                    _spriteRendererComponent.Sprite = _animationFrames[frameIndex];
                 }
+            }
+            else
+            {
+                _spriteAnimationComponent.Stop();
             }
         }
 
