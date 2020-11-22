@@ -32,11 +32,14 @@
     <None Update="Assets\Audio\point.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Assets\Audio\wing %28online-audio-converter.com%29.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Assets\Audio\wing.gsound">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Assets\Audio\wing.wav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
     <None Update="Assets\Level\Empty.scene">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
